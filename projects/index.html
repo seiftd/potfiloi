@@ -1,0 +1,233 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Projects Gallery - Touati Seif Portfolio</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css" rel="stylesheet">
+    <script>
+        tailwind.config = {
+            theme: {
+                extend: {
+                    colors: {
+                        primary: '#3b82f6',
+                        secondary: '#1f2937',
+                        accent: '#8b5cf6'
+                    }
+                }
+            }
+        }
+    </script>
+    <style>
+        .glass {
+            background: rgba(255, 255, 255, 0.1);
+            backdrop-filter: blur(10px);
+            border: 1px solid rgba(255, 255, 255, 0.2);
+        }
+        .gradient-text {
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
+        }
+        .project-card {
+            transition: all 0.3s ease;
+        }
+        .project-card:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 20px 25px -5px rgba(0, 0, 0, 0.1), 0 10px 10px -5px rgba(0, 0, 0, 0.04);
+        }
+    </style>
+</head>
+<body class="bg-gradient-to-br from-gray-900 via-gray-800 to-black text-white min-h-screen">
+    <!-- Navigation -->
+    <nav class="fixed top-0 left-0 right-0 z-50 glass border-b border-white/10">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="flex justify-between items-center h-16">
+                <div class="flex items-center space-x-2">
+                    <div class="w-8 h-8 bg-gradient-to-r from-blue-500 to-purple-600 rounded-lg flex items-center justify-center">
+                        <span class="text-white font-bold text-sm">TS</span>
+                    </div>
+                    <span class="text-white font-semibold text-lg">Projects Gallery</span>
+                </div>
+                <div class="flex items-center space-x-4">
+                    <a href="../" class="px-4 py-2 bg-gradient-to-r from-blue-600 to-purple-600 text-white font-medium rounded-lg hover:from-blue-700 hover:to-purple-700 transition-all">
+                        Back to Portfolio
+                    </a>
+                </div>
+            </div>
+        </div>
+    </nav>
+
+    <!-- Hero Section -->
+    <section class="pt-20 pb-16 px-4 sm:px-6 lg:px-8">
+        <div class="max-w-7xl mx-auto text-center">
+            <h1 class="text-4xl md:text-6xl font-bold mb-6">
+                <span class="gradient-text">Landing Page</span>
+                <br>
+                <span class="text-white">Projects Gallery</span>
+            </h1>
+            <p class="text-xl text-gray-300 max-w-3xl mx-auto mb-8">
+                Explore 21 carefully crafted landing pages and applications, each demonstrating 
+                modern web development practices and creative problem-solving.
+            </p>
+        </div>
+    </section>
+
+    <!-- Projects Grid -->
+    <section class="py-16 px-4 sm:px-6 lg:px-8">
+        <div class="max-w-7xl mx-auto">
+            <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8" id="projectsGrid">
+                <!-- Projects will be dynamically loaded here -->
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer class="py-8 px-4 sm:px-6 lg:px-8 border-t border-white/10">
+        <div class="max-w-7xl mx-auto text-center">
+            <p class="text-gray-400">
+                © 2025 Touati Seif. This is a portfolio project demonstrating web development skills.
+            </p>
+        </div>
+    </footer>
+
+    <script>
+        // Projects data
+        const projects = [
+            {
+                id: 1,
+                title: "E-Commerce React App",
+                description: "A modern e-commerce platform with shopping cart, user authentication, and payment integration.",
+                category: "React",
+                technologies: ["React", "TypeScript", "Tailwind CSS", "Node.js", "MongoDB"],
+                image: "https://images.unsplash.com/photo-1556742049-0cfed4f6a45d?w=400&h=300&fit=crop",
+                demoUrl: "ecommerce-react/index.html",
+                features: ["Shopping Cart", "User Authentication", "Payment Integration", "Product Search", "Order Management"]
+            },
+            {
+                id: 2,
+                title: "Blog Platform with CMS",
+                description: "A full-featured blog platform with content management system and SEO optimization.",
+                category: "Next.js",
+                technologies: ["Next.js", "TypeScript", "Tailwind CSS", "Prisma", "PostgreSQL"],
+                image: "https://images.unsplash.com/photo-1486312338219-ce68d2c6f44d?w=400&h=300&fit=crop",
+                demoUrl: "blog-cms/index.html",
+                features: ["Content Management", "SEO Optimization", "Markdown Support", "User Roles", "Analytics"]
+            },
+            {
+                id: 3,
+                title: "Restaurant Management System",
+                description: "Complete restaurant management solution with menu, orders, and inventory tracking.",
+                category: "Vue.js",
+                technologies: ["Vue.js", "TypeScript", "Tailwind CSS", "Node.js", "MySQL"],
+                image: "https://images.unsplash.com/photo-1517248135467-4c7edcad34c4?w=400&h=300&fit=crop",
+                demoUrl: "restaurant-management/index.html",
+                features: ["Menu Management", "Order Tracking", "Inventory Control", "Staff Management", "Reporting"]
+            },
+            {
+                id: 4,
+                title: "Healthcare Appointment System",
+                description: "Digital healthcare platform for appointment booking and patient management.",
+                category: "React",
+                technologies: ["React", "TypeScript", "Tailwind CSS", "Node.js", "MongoDB"],
+                image: "https://images.unsplash.com/photo-1576091160399-112ba8d25d1f?w=400&h=300&fit=crop",
+                demoUrl: "#",
+                features: ["Appointment Booking", "Patient Records", "Doctor Scheduling", "Notifications", "Telemedicine"]
+            },
+            {
+                id: 5,
+                title: "Real Estate Platform",
+                description: "Modern real estate platform with property listings and virtual tours.",
+                category: "Next.js",
+                technologies: ["Next.js", "TypeScript", "Tailwind CSS", "Prisma", "PostgreSQL"],
+                image: "https://images.unsplash.com/photo-1560518883-ce09059eeffa?w=400&h=300&fit=crop",
+                demoUrl: "#",
+                features: ["Property Listings", "Virtual Tours", "Search Filters", "Agent Profiles", "Contact Forms"]
+            },
+            {
+                id: 6,
+                title: "Fitness Tracking App",
+                description: "Comprehensive fitness tracking application with workout plans and progress analytics.",
+                category: "Vue.js",
+                technologies: ["Vue.js", "TypeScript", "Tailwind CSS", "Node.js", "MongoDB"],
+                image: "https://images.unsplash.com/photo-1571019613454-1cb2f99b2d8b?w=400&h=300&fit=crop",
+                demoUrl: "#",
+                features: ["Workout Tracking", "Progress Analytics", "Nutrition Logging", "Goal Setting", "Social Features"]
+            }
+        ];
+
+        // Initialize the app
+        function initApp() {
+            renderProjects();
+        }
+
+        // Render projects
+        function renderProjects() {
+            const projectsGrid = document.getElementById('projectsGrid');
+            projectsGrid.innerHTML = projects.map(project => `
+                <div class="project-card glass rounded-xl overflow-hidden">
+                    <div class="relative h-48 bg-gradient-to-br from-gray-700 to-gray-900">
+                        <img src="${project.image}" alt="${project.title}" class="w-full h-full object-cover">
+                        <div class="absolute inset-0 bg-gradient-to-t from-black/50 to-transparent"></div>
+                        <div class="absolute top-4 left-4">
+                            <span class="px-2 py-1 bg-blue-500/80 text-white text-xs rounded-full">${project.category}</span>
+                        </div>
+                    </div>
+                    <div class="p-6">
+                        <h3 class="text-lg font-semibold mb-2">${project.title}</h3>
+                        <p class="text-gray-300 text-sm mb-4">${project.description}</p>
+                        
+                        <!-- Technologies -->
+                        <div class="flex flex-wrap gap-2 mb-4">
+                            ${project.technologies.slice(0, 3).map(tech => `
+                                <span class="px-2 py-1 bg-white/10 text-white text-xs rounded-full">
+                                    ${tech}
+                                </span>
+                            `).join('')}
+                            ${project.technologies.length > 3 ? `
+                                <span class="px-2 py-1 bg-white/10 text-white text-xs rounded-full">
+                                    +${project.technologies.length - 3}
+                                </span>
+                            ` : ''}
+                        </div>
+
+                        <!-- Features -->
+                        <div class="mb-4">
+                            <h4 class="text-sm font-medium text-gray-300 mb-2">Key Features:</h4>
+                            <div class="grid grid-cols-2 gap-1">
+                                ${project.features.slice(0, 4).map(feature => `
+                                    <div class="flex items-center space-x-2">
+                                        <span class="text-green-400 text-xs">✓</span>
+                                        <span class="text-gray-400 text-xs">${feature}</span>
+                                    </div>
+                                `).join('')}
+                            </div>
+                        </div>
+
+                        <!-- Action Buttons -->
+                        <div class="flex gap-2">
+                            ${project.demoUrl !== '#' ? `
+                                <a href="${project.demoUrl}" class="flex-1 px-4 py-2 bg-gradient-to-r from-blue-600 to-purple-600 text-white text-sm font-medium rounded-lg hover:from-blue-700 hover:to-purple-700 transition-all text-center">
+                                    Live Demo
+                                </a>
+                            ` : `
+                                <button class="flex-1 px-4 py-2 bg-gray-600 text-gray-300 text-sm font-medium rounded-lg cursor-not-allowed">
+                                    Coming Soon
+                                </button>
+                            `}
+                            <button class="flex-1 px-4 py-2 border border-white/30 text-white text-sm font-medium rounded-lg hover:bg-white/10 transition-all">
+                                Details
+                            </button>
+                        </div>
+                    </div>
+                </div>
+            `).join('');
+        }
+
+        // Initialize the app when DOM is loaded
+        document.addEventListener('DOMContentLoaded', initApp);
+    </script>
+</body>
+</html>

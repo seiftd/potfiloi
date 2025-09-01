@@ -1,0 +1,60 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="800" height="600" viewBox="0 0 800 600">
+  <defs>
+    <linearGradient id="grad1" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" style="stop-color:#1f2937;stop-opacity:1" />
+      <stop offset="100%" style="stop-color:#111827;stop-opacity:1" />
+    </linearGradient>
+  </defs>
+  <rect width="800" height="600" fill="url(#grad1)"/>
+  
+  <!-- Header -->
+  <rect x="0" y="0" width="800" height="80" fill="rgba(59,130,246,0.2)" stroke="rgba(59,130,246,0.3)" stroke-width="1"/>
+  <text x="400" y="50" font-family="Arial, sans-serif" font-size="24" font-weight="bold" text-anchor="middle" fill="white">Analytics Dashboard</text>
+  
+  <!-- Sidebar -->
+  <rect x="0" y="80" width="200" height="520" fill="rgba(31,41,55,0.8)" stroke="rgba(75,85,99,0.3)" stroke-width="1"/>
+  <text x="100" y="120" font-family="Arial, sans-serif" font-size="16" font-weight="bold" text-anchor="middle" fill="white">Navigation</text>
+  
+  <!-- Metrics Cards -->
+  <rect x="220" y="100" width="150" height="100" rx="8" fill="rgba(59,130,246,0.2)" stroke="rgba(59,130,246,0.3)" stroke-width="1"/>
+  <text x="295" y="130" font-family="Arial, sans-serif" font-size="14" text-anchor="middle" fill="white">Revenue</text>
+  <text x="295" y="155" font-family="Arial, sans-serif" font-size="24" font-weight="bold" text-anchor="middle" fill="#3b82f6">$45.2K</text>
+  
+  <rect x="390" y="100" width="150" height="100" rx="8" fill="rgba(139,92,246,0.2)" stroke="rgba(139,92,246,0.3)" stroke-width="1"/>
+  <text x="465" y="130" font-family="Arial, sans-serif" font-size="14" text-anchor="middle" fill="white">Users</text>
+  <text x="465" y="155" font-family="Arial, sans-serif" font-size="24" font-weight="bold" text-anchor="middle" fill="#8b5cf6">2.4K</text>
+  
+  <rect x="560" y="100" width="150" height="100" rx="8" fill="rgba(34,197,94,0.2)" stroke="rgba(34,197,94,0.3)" stroke-width="1"/>
+  <text x="635" y="130" font-family="Arial, sans-serif" font-size="14" text-anchor="middle" fill="white">Growth</text>
+  <text x="635" y="155" font-family="Arial, sans-serif" font-size="24" font-weight="bold" text-anchor="middle" fill="#22c55e">+12%</text>
+  
+  <!-- Chart Area -->
+  <rect x="220" y="220" width="560" height="200" rx="8" fill="rgba(255,255,255,0.05)" stroke="rgba(255,255,255,0.1)" stroke-width="1"/>
+  <text x="500" y="250" font-family="Arial, sans-serif" font-size="18" font-weight="bold" text-anchor="middle" fill="white">Revenue Chart</text>
+  
+  <!-- Chart Bars -->
+  <rect x="240" y="320" width="40" height="80" fill="#3b82f6"/>
+  <rect x="300" y="300" width="40" height="100" fill="#8b5cf6"/>
+  <rect x="360" y="280" width="40" height="120" fill="#22c55e"/>
+  <rect x="420" y="290" width="40" height="110" fill="#f59e0b"/>
+  <rect x="480" y="270" width="40" height="130" fill="#ef4444"/>
+  <rect x="540" y="310" width="40" height="90" fill="#06b6d4"/>
+  <rect x="600" y="285" width="40" height="115" fill="#a855f7"/>
+  
+  <!-- Table -->
+  <rect x="220" y="440" width="560" height="160" rx="8" fill="rgba(255,255,255,0.05)" stroke="rgba(255,255,255,0.1)" stroke-width="1"/>
+  <text x="500" y="470" font-family="Arial, sans-serif" font-size="18" font-weight="bold" text-anchor="middle" fill="white">Recent Activity</text>
+  
+  <!-- Table Rows -->
+  <rect x="240" y="490" width="520" height="30" fill="rgba(59,130,246,0.1)"/>
+  <text x="260" y="510" font-family="Arial, sans-serif" font-size="14" fill="white">New user registration</text>
+  <text x="700" y="510" font-family="Arial, sans-serif" font-size="14" text-anchor="end" fill="white">2 min ago</text>
+  
+  <rect x="240" y="520" width="520" height="30" fill="rgba(139,92,246,0.1)"/>
+  <text x="260" y="540" font-family="Arial, sans-serif" font-size="14" fill="white">Payment received</text>
+  <text x="700" y="540" font-family="Arial, sans-serif" font-size="14" text-anchor="end" fill="white">5 min ago</text>
+  
+  <rect x="240" y="550" width="520" height="30" fill="rgba(34,197,94,0.1)"/>
+  <text x="260" y="570" font-family="Arial, sans-serif" font-size="14" fill="white">Order completed</text>
+  <text x="700" y="570" font-family="Arial, sans-serif" font-size="14" text-anchor="end" fill="white">8 min ago</text>
+</svg>

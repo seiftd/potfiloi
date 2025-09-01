@@ -1,0 +1,40 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="400" height="300" viewBox="0 0 400 300">
+  <defs>
+    <linearGradient id="grad1" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" style="stop-color:#22c55e;stop-opacity:1" />
+      <stop offset="100%" style="stop-color:#16a34a;stop-opacity:1" />
+    </linearGradient>
+  </defs>
+  <rect width="400" height="300" fill="url(#grad1)"/>
+  
+  <!-- Header -->
+  <rect x="0" y="0" width="400" height="60" fill="rgba(255,255,255,0.1)" stroke="rgba(255,255,255,0.2)" stroke-width="1"/>
+  <text x="200" y="35" font-family="Arial, sans-serif" font-size="18" font-weight="bold" text-anchor="middle" fill="white">Restaurant Management</text>
+  
+  <!-- Menu Items -->
+  <rect x="20" y="80" width="170" height="60" rx="8" fill="rgba(255,255,255,0.1)" stroke="rgba(255,255,255,0.2)" stroke-width="1"/>
+  <text x="35" y="100" font-family="Arial, sans-serif" font-size="14" font-weight="bold" fill="white">🍕 Margherita Pizza</text>
+  <text x="35" y="120" font-family="Arial, sans-serif" font-size="12" fill="rgba(255,255,255,0.8)">$18.99 • Available</text>
+  
+  <rect x="210" y="80" width="170" height="60" rx="8" fill="rgba(255,255,255,0.1)" stroke="rgba(255,255,255,0.2)" stroke-width="1"/>
+  <text x="225" y="100" font-family="Arial, sans-serif" font-size="14" font-weight="bold" fill="white">🍝 Carbonara Pasta</text>
+  <text x="225" y="120" font-family="Arial, sans-serif" font-size="12" fill="rgba(255,255,255,0.8)">$16.99 • Available</text>
+  
+  <!-- Orders -->
+  <rect x="20" y="150" width="170" height="60" rx="8" fill="rgba(255,255,255,0.1)" stroke="rgba(255,255,255,0.2)" stroke-width="1"/>
+  <text x="35" y="170" font-family="Arial, sans-serif" font-size="14" font-weight="bold" fill="white">Order #1234</text>
+  <text x="35" y="190" font-family="Arial, sans-serif" font-size="12" fill="rgba(255,255,255,0.8)">2 items • $35.98 • Preparing</text>
+  
+  <rect x="210" y="150" width="170" height="60" rx="8" fill="rgba(255,255,255,0.1)" stroke="rgba(255,255,255,0.2)" stroke-width="1"/>
+  <text x="225" y="170" font-family="Arial, sans-serif" font-size="14" font-weight="bold" fill="white">Order #1235</text>
+  <text x="225" y="190" font-family="Arial, sans-serif" font-size="12" fill="rgba(255,255,255,0.8)">1 item • $18.99 • Ready</text>
+  
+  <!-- Dashboard -->
+  <rect x="20" y="220" width="360" height="60" rx="8" fill="rgba(255,255,255,0.05)" stroke="rgba(255,255,255,0.1)" stroke-width="1"/>
+  <text x="200" y="240" font-family="Arial, sans-serif" font-size="16" font-weight="bold" text-anchor="middle" fill="white">Kitchen Dashboard</text>
+  <text x="200" y="260" font-family="Arial, sans-serif" font-size="14" text-anchor="middle" fill="rgba(255,255,255,0.8)">Active Orders: 2 • Pending: 1 • Completed: 15</text>
+  
+  <!-- Features -->
+  <rect x="20" y="280" width="360" height="20" fill="rgba(255,255,255,0.05)" stroke="rgba(255,255,255,0.1)" stroke-width="1"/>
+  <text x="200" y="295" font-family="Arial, sans-serif" font-size="12" text-anchor="middle" fill="rgba(255,255,255,0.7)">🍽️ Menu • 📋 Orders • 👨‍🍳 Staff • 📊 Reports</text>
+</svg>

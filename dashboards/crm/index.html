@@ -1,0 +1,319 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>CRM Dashboard - Demo</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+    <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+    <style>
+        .glass {
+            background: rgba(255, 255, 255, 0.1);
+            backdrop-filter: blur(10px);
+            border: 1px solid rgba(255, 255, 255, 0.2);
+        }
+        .gradient-text {
+            background: linear-gradient(135deg, #dc2626 0%, #991b1b 100%);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
+        }
+    </style>
+</head>
+<body class="bg-gradient-to-br from-gray-900 via-gray-800 to-black text-white min-h-screen">
+    <!-- Sidebar -->
+    <div class="fixed left-0 top-0 h-full w-64 glass border-r border-white/10">
+        <div class="p-6">
+            <h1 class="text-2xl font-bold gradient-text mb-8">CRM Dashboard</h1>
+            <nav class="space-y-4">
+                <a href="#" class="flex items-center space-x-3 p-3 rounded-lg bg-red-600/20 text-red-300">
+                    <i class="fas fa-tachometer-alt"></i>
+                    <span>Dashboard</span>
+                </a>
+                <a href="#" class="flex items-center space-x-3 p-3 rounded-lg hover:bg-white/10 transition-colors">
+                    <i class="fas fa-users"></i>
+                    <span>Customers</span>
+                </a>
+                <a href="#" class="flex items-center space-x-3 p-3 rounded-lg hover:bg-white/10 transition-colors">
+                    <i class="fas fa-chart-line"></i>
+                    <span>Sales</span>
+                </a>
+                <a href="#" class="flex items-center space-x-3 p-3 rounded-lg hover:bg-white/10 transition-colors">
+                    <i class="fas fa-tasks"></i>
+                    <span>Tasks</span>
+                </a>
+                <a href="#" class="flex items-center space-x-3 p-3 rounded-lg hover:bg-white/10 transition-colors">
+                    <i class="fas fa-cog"></i>
+                    <span>Settings</span>
+                </a>
+            </nav>
+        </div>
+    </div>
+
+    <!-- Main Content -->
+    <div class="ml-64 p-8">
+        <!-- Header -->
+        <div class="mb-8">
+            <h1 class="text-3xl font-bold mb-2">Customer Relationship Management</h1>
+            <p class="text-gray-300">Manage your customers, track sales, and grow your business</p>
+        </div>
+
+        <!-- Metrics Cards -->
+        <div class="grid grid-cols-1 md:grid-cols-3 gap-6 mb-8">
+            <div class="glass rounded-xl p-6">
+                <div class="flex items-center justify-between">
+                    <div>
+                        <p class="text-gray-400 text-sm">Total Customers</p>
+                        <p class="text-3xl font-bold text-red-400">1,247</p>
+                    </div>
+                    <div class="w-12 h-12 bg-red-500/20 rounded-lg flex items-center justify-center">
+                        <i class="fas fa-users text-red-400 text-xl"></i>
+                    </div>
+                </div>
+                <div class="mt-4 flex items-center text-green-400 text-sm">
+                    <i class="fas fa-arrow-up mr-2"></i>
+                    <span>+12% from last month</span>
+                </div>
+            </div>
+
+            <div class="glass rounded-xl p-6">
+                <div class="flex items-center justify-between">
+                    <div>
+                        <p class="text-gray-400 text-sm">Active Leads</p>
+                        <p class="text-3xl font-bold text-green-400">89</p>
+                    </div>
+                    <div class="w-12 h-12 bg-green-500/20 rounded-lg flex items-center justify-center">
+                        <i class="fas fa-lightbulb text-green-400 text-xl"></i>
+                    </div>
+                </div>
+                <div class="mt-4 flex items-center text-green-400 text-sm">
+                    <i class="fas fa-arrow-up mr-2"></i>
+                    <span>+8% from last month</span>
+                </div>
+            </div>
+
+            <div class="glass rounded-xl p-6">
+                <div class="flex items-center justify-between">
+                    <div>
+                        <p class="text-gray-400 text-sm">Conversion Rate</p>
+                        <p class="text-3xl font-bold text-blue-400">23.4%</p>
+                    </div>
+                    <div class="w-12 h-12 bg-blue-500/20 rounded-lg flex items-center justify-center">
+                        <i class="fas fa-percentage text-blue-400 text-xl"></i>
+                    </div>
+                </div>
+                <div class="mt-4 flex items-center text-green-400 text-sm">
+                    <i class="fas fa-arrow-up mr-2"></i>
+                    <span>+2.1% from last month</span>
+                </div>
+            </div>
+        </div>
+
+        <!-- Charts and Data -->
+        <div class="grid grid-cols-1 lg:grid-cols-2 gap-8 mb-8">
+            <!-- Sales Chart -->
+            <div class="glass rounded-xl p-6">
+                <h3 class="text-xl font-bold mb-4">Sales Performance</h3>
+                <canvas id="salesChart" width="400" height="200"></canvas>
+            </div>
+
+            <!-- Customer Growth -->
+            <div class="glass rounded-xl p-6">
+                <h3 class="text-xl font-bold mb-4">Customer Growth</h3>
+                <canvas id="growthChart" width="400" height="200"></canvas>
+            </div>
+        </div>
+
+        <!-- Recent Customers -->
+        <div class="glass rounded-xl p-6">
+            <h3 class="text-xl font-bold mb-4">Recent Customers</h3>
+            <div class="overflow-x-auto">
+                <table class="w-full">
+                    <thead>
+                        <tr class="border-b border-white/10">
+                            <th class="text-left p-3">Name</th>
+                            <th class="text-left p-3">Email</th>
+                            <th class="text-left p-3">Status</th>
+                            <th class="text-left p-3">Value</th>
+                            <th class="text-left p-3">Actions</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr class="border-b border-white/5">
+                            <td class="p-3">John Smith</td>
+                            <td class="p-3 text-gray-300">john@company.com</td>
+                            <td class="p-3"><span class="bg-red-500/20 text-red-300 px-2 py-1 rounded-full text-xs">Premium</span></td>
+                            <td class="p-3">$2,500</td>
+                            <td class="p-3">
+                                <button class="text-blue-400 hover:text-blue-300 mr-2"><i class="fas fa-edit"></i></button>
+                                <button class="text-green-400 hover:text-green-300"><i class="fas fa-eye"></i></button>
+                            </td>
+                        </tr>
+                        <tr class="border-b border-white/5">
+                            <td class="p-3">Sarah Johnson</td>
+                            <td class="p-3 text-gray-300">sarah@company.com</td>
+                            <td class="p-3"><span class="bg-green-500/20 text-green-300 px-2 py-1 rounded-full text-xs">Standard</span></td>
+                            <td class="p-3">$1,200</td>
+                            <td class="p-3">
+                                <button class="text-blue-400 hover:text-blue-300 mr-2"><i class="fas fa-edit"></i></button>
+                                <button class="text-green-400 hover:text-green-300"><i class="fas fa-eye"></i></button>
+                            </td>
+                        </tr>
+                        <tr class="border-b border-white/5">
+                            <td class="p-3">Mike Davis</td>
+                            <td class="p-3 text-gray-300">mike@company.com</td>
+                            <td class="p-3"><span class="bg-blue-500/20 text-blue-300 px-2 py-1 rounded-full text-xs">Basic</span></td>
+                            <td class="p-3">$800</td>
+                            <td class="p-3">
+                                <button class="text-blue-400 hover:text-blue-300 mr-2"><i class="fas fa-edit"></i></button>
+                                <button class="text-green-400 hover:text-green-300"><i class="fas fa-eye"></i></button>
+                            </td>
+                        </tr>
+                        <tr>
+                            <td class="p-3">Lisa Wilson</td>
+                            <td class="p-3 text-gray-300">lisa@company.com</td>
+                            <td class="p-3"><span class="bg-purple-500/20 text-purple-300 px-2 py-1 rounded-full text-xs">Premium</span></td>
+                            <td class="p-3">$3,100</td>
+                            <td class="p-3">
+                                <button class="text-blue-400 hover:text-blue-300 mr-2"><i class="fas fa-edit"></i></button>
+                                <button class="text-green-400 hover:text-green-300"><i class="fas fa-eye"></i></button>
+                            </td>
+                        </tr>
+                    </tbody>
+                </table>
+            </div>
+        </div>
+
+        <!-- Activity Feed -->
+        <div class="glass rounded-xl p-6">
+            <h3 class="text-xl font-bold mb-4">Recent Activity</h3>
+            <div class="space-y-4">
+                <div class="flex items-center space-x-4 p-3 bg-red-500/10 rounded-lg">
+                    <div class="w-3 h-3 bg-red-400 rounded-full"></div>
+                    <div class="flex-1">
+                        <p class="font-medium">New lead: TechCorp Inc.</p>
+                        <p class="text-sm text-gray-400">Added to sales pipeline</p>
+                    </div>
+                    <span class="text-sm text-gray-400">5 min ago</span>
+                </div>
+                <div class="flex items-center space-x-4 p-3 bg-green-500/10 rounded-lg">
+                    <div class="w-3 h-3 bg-green-400 rounded-full"></div>
+                    <div class="flex-1">
+                        <p class="font-medium">Deal closed: $15,000</p>
+                        <p class="text-sm text-gray-400">Contract signed with ABC Corp</p>
+                    </div>
+                    <span class="text-sm text-gray-400">1 hour ago</span>
+                </div>
+                <div class="flex items-center space-x-4 p-3 bg-blue-500/10 rounded-lg">
+                    <div class="w-3 h-3 bg-blue-400 rounded-full"></div>
+                    <div class="flex-1">
+                        <p class="font-medium">Follow-up scheduled</p>
+                        <p class="text-sm text-gray-400">Meeting with XYZ Industries</p>
+                    </div>
+                    <span class="text-sm text-gray-400">2 hours ago</span>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <script>
+        // Initialize charts
+        const salesCtx = document.getElementById('salesChart').getContext('2d');
+        const growthCtx = document.getElementById('growthChart').getContext('2d');
+
+        // Sales Chart
+        new Chart(salesCtx, {
+            type: 'line',
+            data: {
+                labels: ['Jan', 'Feb', 'Mar', 'Apr', 'May', 'Jun'],
+                datasets: [{
+                    label: 'Sales',
+                    data: [12, 19, 15, 25, 22, 30],
+                    borderColor: '#dc2626',
+                    backgroundColor: 'rgba(220, 38, 38, 0.1)',
+                    tension: 0.4
+                }]
+            },
+            options: {
+                responsive: true,
+                plugins: {
+                    legend: {
+                        display: false
+                    }
+                },
+                scales: {
+                    y: {
+                        beginAtZero: true,
+                        grid: {
+                            color: 'rgba(255, 255, 255, 0.1)'
+                        },
+                        ticks: {
+                            color: 'rgba(255, 255, 255, 0.7)'
+                        }
+                    },
+                    x: {
+                        grid: {
+                            color: 'rgba(255, 255, 255, 0.1)'
+                        },
+                        ticks: {
+                            color: 'rgba(255, 255, 255, 0.7)'
+                        }
+                    }
+                }
+            }
+        });
+
+        // Growth Chart
+        new Chart(growthCtx, {
+            type: 'bar',
+            data: {
+                labels: ['Jan', 'Feb', 'Mar', 'Apr', 'May', 'Jun'],
+                datasets: [{
+                    label: 'New Customers',
+                    data: [65, 78, 90, 85, 95, 110],
+                    backgroundColor: '#22c55e',
+                    borderRadius: 4
+                }]
+            },
+            options: {
+                responsive: true,
+                plugins: {
+                    legend: {
+                        display: false
+                    }
+                },
+                scales: {
+                    y: {
+                        beginAtZero: true,
+                        grid: {
+                            color: 'rgba(255, 255, 255, 0.1)'
+                        },
+                        ticks: {
+                            color: 'rgba(255, 255, 255, 0.7)'
+                        }
+                    },
+                    x: {
+                        grid: {
+                            color: 'rgba(255, 255, 255, 0.1)'
+                        },
+                        ticks: {
+                            color: 'rgba(255, 255, 255, 0.7)'
+                        }
+                    }
+                }
+            }
+        });
+
+        // Add interactivity
+        document.querySelectorAll('button').forEach(button => {
+            button.addEventListener('click', function() {
+                this.style.transform = 'scale(0.95)';
+                setTimeout(() => {
+                    this.style.transform = 'scale(1)';
+                }, 150);
+            });
+        });
+    </script>
+</body>
+</html>

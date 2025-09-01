@@ -1,0 +1,201 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>SaaS Platform - Demo</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+    <style>
+        .glass {
+            background: rgba(255, 255, 255, 0.1);
+            backdrop-filter: blur(10px);
+            border: 1px solid rgba(255, 255, 255, 0.2);
+        }
+        .gradient-text {
+            background: linear-gradient(135deg, #f59e0b 0%, #d97706 100%);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
+        }
+    </style>
+</head>
+<body class="bg-gradient-to-br from-gray-900 via-gray-800 to-black text-white min-h-screen">
+    <!-- Navigation -->
+    <nav class="glass border-b border-white/10 p-4">
+        <div class="max-w-7xl mx-auto flex justify-between items-center">
+            <div class="text-2xl font-bold gradient-text">SaaS Platform</div>
+            <div class="flex space-x-4">
+                <a href="#" class="hover:text-yellow-400 transition-colors">Features</a>
+                <a href="#" class="hover:text-yellow-400 transition-colors">Pricing</a>
+                <a href="#" class="hover:text-yellow-400 transition-colors">About</a>
+                <a href="#" class="hover:text-yellow-400 transition-colors">Contact</a>
+            </div>
+        </div>
+    </nav>
+
+    <!-- Hero Section -->
+    <section class="py-20 text-center">
+        <div class="max-w-4xl mx-auto px-4">
+            <h1 class="text-5xl font-bold mb-6 gradient-text">
+                Enterprise SaaS Solution
+            </h1>
+            <p class="text-xl text-gray-300 mb-8">
+                Powerful platform for modern businesses with subscription management, team collaboration, and advanced analytics
+            </p>
+            <div class="flex justify-center space-x-4">
+                <button class="bg-yellow-500 hover:bg-yellow-600 px-8 py-3 rounded-lg font-semibold transition-colors">
+                    Start Free Trial
+                </button>
+                <button class="glass px-8 py-3 rounded-lg font-semibold hover:bg-white/20 transition-colors">
+                    View Demo
+                </button>
+            </div>
+        </div>
+    </section>
+
+    <!-- Pricing Section -->
+    <section class="py-20">
+        <div class="max-w-7xl mx-auto px-4">
+            <h2 class="text-3xl font-bold text-center mb-12">Choose Your Plan</h2>
+            <div class="grid md:grid-cols-3 gap-8">
+                <!-- Starter Plan -->
+                <div class="glass rounded-xl p-8 text-center">
+                    <h3 class="text-2xl font-bold mb-4">Starter</h3>
+                    <div class="text-4xl font-bold mb-6">$29<span class="text-lg text-gray-400">/month</span></div>
+                    <ul class="space-y-3 mb-8 text-left">
+                        <li class="flex items-center"><i class="fas fa-check text-green-400 mr-3"></i>5 users</li>
+                        <li class="flex items-center"><i class="fas fa-check text-green-400 mr-3"></i>Basic features</li>
+                        <li class="flex items-center"><i class="fas fa-check text-green-400 mr-3"></i>Email support</li>
+                        <li class="flex items-center"><i class="fas fa-check text-green-400 mr-3"></i>1GB storage</li>
+                    </ul>
+                    <button class="w-full bg-yellow-500 hover:bg-yellow-600 py-3 rounded-lg font-semibold transition-colors">
+                        Get Started
+                    </button>
+                </div>
+
+                <!-- Pro Plan -->
+                <div class="glass rounded-xl p-8 text-center border-2 border-yellow-500">
+                    <div class="bg-yellow-500 text-black px-4 py-1 rounded-full text-sm font-semibold mb-4 inline-block">Most Popular</div>
+                    <h3 class="text-2xl font-bold mb-4">Pro</h3>
+                    <div class="text-4xl font-bold mb-6">$99<span class="text-lg text-gray-400">/month</span></div>
+                    <ul class="space-y-3 mb-8 text-left">
+                        <li class="flex items-center"><i class="fas fa-check text-green-400 mr-3"></i>25 users</li>
+                        <li class="flex items-center"><i class="fas fa-check text-green-400 mr-3"></i>Advanced features</li>
+                        <li class="flex items-center"><i class="fas fa-check text-green-400 mr-3"></i>Priority support</li>
+                        <li class="flex items-center"><i class="fas fa-check text-green-400 mr-3"></i>10GB storage</li>
+                        <li class="flex items-center"><i class="fas fa-check text-green-400 mr-3"></i>API access</li>
+                    </ul>
+                    <button class="w-full bg-yellow-500 hover:bg-yellow-600 py-3 rounded-lg font-semibold transition-colors">
+                        Get Started
+                    </button>
+                </div>
+
+                <!-- Enterprise Plan -->
+                <div class="glass rounded-xl p-8 text-center">
+                    <h3 class="text-2xl font-bold mb-4">Enterprise</h3>
+                    <div class="text-4xl font-bold mb-6">$299<span class="text-lg text-gray-400">/month</span></div>
+                    <ul class="space-y-3 mb-8 text-left">
+                        <li class="flex items-center"><i class="fas fa-check text-green-400 mr-3"></i>Unlimited users</li>
+                        <li class="flex items-center"><i class="fas fa-check text-green-400 mr-3"></i>Custom features</li>
+                        <li class="flex items-center"><i class="fas fa-check text-green-400 mr-3"></i>24/7 support</li>
+                        <li class="flex items-center"><i class="fas fa-check text-green-400 mr-3"></i>Unlimited storage</li>
+                        <li class="flex items-center"><i class="fas fa-check text-green-400 mr-3"></i>Custom integrations</li>
+                    </ul>
+                    <button class="w-full bg-yellow-500 hover:bg-yellow-600 py-3 rounded-lg font-semibold transition-colors">
+                        Contact Sales
+                    </button>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Features Section -->
+    <section class="py-20">
+        <div class="max-w-7xl mx-auto px-4">
+            <h2 class="text-3xl font-bold text-center mb-12">Powerful Features</h2>
+            <div class="grid md:grid-cols-2 lg:grid-cols-3 gap-8">
+                <div class="glass rounded-xl p-6 text-center">
+                    <i class="fas fa-users text-4xl text-yellow-400 mb-4"></i>
+                    <h3 class="text-xl font-bold mb-3">Team Management</h3>
+                    <p class="text-gray-300">Easily manage team members, roles, and permissions</p>
+                </div>
+                <div class="glass rounded-xl p-6 text-center">
+                    <i class="fas fa-chart-line text-4xl text-yellow-400 mb-4"></i>
+                    <h3 class="text-xl font-bold mb-3">Analytics</h3>
+                    <p class="text-gray-300">Comprehensive insights and reporting tools</p>
+                </div>
+                <div class="glass rounded-xl p-6 text-center">
+                    <i class="fas fa-plug text-4xl text-yellow-400 mb-4"></i>
+                    <h3 class="text-xl font-bold mb-3">API Integration</h3>
+                    <p class="text-gray-300">Connect with your existing tools and workflows</p>
+                </div>
+                <div class="glass rounded-xl p-6 text-center">
+                    <i class="fas fa-shield-alt text-4xl text-yellow-400 mb-4"></i>
+                    <h3 class="text-xl font-bold mb-3">Security</h3>
+                    <p class="text-gray-300">Enterprise-grade security and compliance</p>
+                </div>
+                <div class="glass rounded-xl p-6 text-center">
+                    <i class="fas fa-mobile-alt text-4xl text-yellow-400 mb-4"></i>
+                    <h3 class="text-xl font-bold mb-3">Mobile Ready</h3>
+                    <p class="text-gray-300">Access your dashboard from anywhere</p>
+                </div>
+                <div class="glass rounded-xl p-6 text-center">
+                    <i class="fas fa-headset text-4xl text-yellow-400 mb-4"></i>
+                    <h3 class="text-xl font-bold mb-3">24/7 Support</h3>
+                    <p class="text-gray-300">Round-the-clock customer support</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- About This Project -->
+    <section class="py-20 bg-black/20">
+        <div class="max-w-4xl mx-auto px-4 text-center">
+            <h2 class="text-3xl font-bold mb-6">About This Project</h2>
+            <p class="text-lg text-gray-300 mb-8">
+                This SaaS platform demo showcases a modern subscription management system built with React, TypeScript, and Tailwind CSS. 
+                It demonstrates key SaaS features like pricing tiers, user management, and enterprise solutions.
+            </p>
+            <div class="flex justify-center space-x-4">
+                <a href="#" class="bg-yellow-500 hover:bg-yellow-600 px-6 py-3 rounded-lg font-semibold transition-colors">
+                    View Source Code
+                </a>
+                <a href="#" class="glass px-6 py-3 rounded-lg font-semibold hover:bg-white/20 transition-colors">
+                    Back to Portfolio
+                </a>
+            </div>
+        </div>
+    </section>
+
+    <!-- Contact Section -->
+    <section class="py-20">
+        <div class="max-w-4xl mx-auto px-4 text-center">
+            <h2 class="text-3xl font-bold mb-6">Ready to Get Started?</h2>
+            <p class="text-lg text-gray-300 mb-8">
+                Join thousands of businesses using our platform to grow and scale
+            </p>
+            <div class="flex justify-center space-x-4">
+                <button class="bg-yellow-500 hover:bg-yellow-600 px-8 py-3 rounded-lg font-semibold transition-colors">
+                    Start Free Trial
+                </button>
+                <button class="glass px-8 py-3 rounded-lg font-semibold hover:bg-white/20 transition-colors">
+                    Schedule Demo
+                </button>
+            </div>
+        </div>
+    </section>
+
+    <script>
+        // Add some interactivity
+        document.querySelectorAll('button').forEach(button => {
+            button.addEventListener('click', function() {
+                this.style.transform = 'scale(0.95)';
+                setTimeout(() => {
+                    this.style.transform = 'scale(1)';
+                }, 150);
+            });
+        });
+    </script>
+</body>
+</html>

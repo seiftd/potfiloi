@@ -1,0 +1,524 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Blog Platform with CMS - Touati Seif Portfolio</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css" rel="stylesheet">
+    <script>
+        tailwind.config = {
+            theme: {
+                extend: {
+                    colors: {
+                        primary: '#3b82f6',
+                        secondary: '#1f2937',
+                        accent: '#8b5cf6'
+                    }
+                }
+            }
+        }
+    </script>
+    <style>
+        .glass {
+            background: rgba(255, 255, 255, 0.1);
+            backdrop-filter: blur(10px);
+            border: 1px solid rgba(255, 255, 255, 0.2);
+        }
+        .gradient-text {
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
+        }
+        .blog-card {
+            transition: all 0.3s ease;
+        }
+        .blog-card:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 20px 25px -5px rgba(0, 0, 0, 0.1), 0 10px 10px -5px rgba(0, 0, 0, 0.04);
+        }
+        .cms-panel {
+            animation: slideIn 0.3s ease-out;
+        }
+        @keyframes slideIn {
+            from {
+                opacity: 0;
+                transform: translateX(-20px);
+            }
+            to {
+                opacity: 1;
+                transform: translateX(0);
+            }
+        }
+        .tag {
+            transition: all 0.2s ease;
+        }
+        .tag:hover {
+            transform: scale(1.05);
+        }
+    </style>
+</head>
+<body class="bg-gradient-to-br from-gray-900 via-gray-800 to-black text-white min-h-screen">
+    <!-- Navigation -->
+    <nav class="fixed top-0 left-0 right-0 z-50 glass border-b border-white/10">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="flex justify-between items-center h-16">
+                <div class="flex items-center space-x-2">
+                    <div class="w-8 h-8 bg-gradient-to-r from-blue-500 to-purple-600 rounded-lg flex items-center justify-center">
+                        <span class="text-white font-bold text-sm">TS</span>
+                    </div>
+                    <span class="text-white font-semibold text-lg">Blog Platform with CMS</span>
+                </div>
+                <div class="flex items-center space-x-4">
+                    <button id="cmsBtn" class="px-4 py-2 bg-gradient-to-r from-green-600 to-blue-600 text-white font-medium rounded-lg hover:from-green-700 hover:to-blue-700 transition-all">
+                        <i class="fas fa-cog mr-2"></i>
+                        CMS Panel
+                    </button>
+                    <a href="../" class="px-4 py-2 bg-gradient-to-r from-blue-600 to-purple-600 text-white font-medium rounded-lg hover:from-blue-700 hover:to-purple-700 transition-all">
+                        Back to Portfolio
+                    </a>
+                </div>
+            </div>
+        </div>
+    </nav>
+
+    <!-- Hero Section -->
+    <section class="pt-20 pb-16 px-4 sm:px-6 lg:px-8">
+        <div class="max-w-7xl mx-auto text-center">
+            <h1 class="text-4xl md:text-6xl font-bold mb-6">
+                <span class="gradient-text">Modern Blog Platform</span>
+                <br>
+                <span class="text-white">with Content Management</span>
+            </h1>
+            <p class="text-xl text-gray-300 max-w-3xl mx-auto mb-8">
+                A full-featured blog platform built with Next.js, featuring a powerful CMS, 
+                SEO optimization, and markdown support for content creators.
+            </p>
+            <div class="flex flex-wrap justify-center gap-4">
+                <button class="px-8 py-4 bg-gradient-to-r from-blue-600 to-purple-600 text-white font-semibold rounded-lg hover:from-blue-700 hover:to-purple-700 transition-all">
+                    <i class="fas fa-book-open mr-2"></i>
+                    Read Blog
+                </button>
+                <button id="demoBtn" class="px-8 py-4 border-2 border-white/30 text-white font-semibold rounded-lg hover:bg-white/10 transition-all">
+                    <i class="fas fa-play mr-2"></i>
+                    Watch Demo
+                </button>
+            </div>
+        </div>
+    </section>
+
+    <!-- Features Section -->
+    <section class="py-16 px-4 sm:px-6 lg:px-8">
+        <div class="max-w-7xl mx-auto">
+            <h2 class="text-3xl font-bold text-center mb-12">Key Features</h2>
+            <div class="grid md:grid-cols-3 gap-8">
+                <div class="glass p-6 rounded-xl text-center">
+                    <div class="w-16 h-16 bg-blue-500/20 rounded-full flex items-center justify-center mx-auto mb-4">
+                        <i class="fas fa-edit text-2xl text-blue-400"></i>
+                    </div>
+                    <h3 class="text-xl font-semibold mb-2">Content Management</h3>
+                    <p class="text-gray-300">Intuitive CMS with rich text editor, image management, and content scheduling.</p>
+                </div>
+                <div class="glass p-6 rounded-xl text-center">
+                    <div class="w-16 h-16 bg-green-500/20 rounded-full flex items-center justify-center mx-auto mb-4">
+                        <i class="fas fa-search text-2xl text-green-400"></i>
+                    </div>
+                    <h3 class="text-xl font-semibold mb-2">SEO Optimization</h3>
+                    <p class="text-gray-300">Built-in SEO tools with meta tags, sitemaps, and structured data support.</p>
+                </div>
+                <div class="glass p-6 rounded-xl text-center">
+                    <div class="w-16 h-16 bg-purple-500/20 rounded-full flex items-center justify-center mx-auto mb-4">
+                        <i class="fas fa-users text-2xl text-purple-400"></i>
+                    </div>
+                    <h3 class="text-xl font-semibold mb-2">User Roles</h3>
+                    <p class="text-gray-300">Multi-user support with role-based permissions and content approval workflows.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Blog Posts Section -->
+    <section class="py-16 px-4 sm:px-6 lg:px-8">
+        <div class="max-w-7xl mx-auto">
+            <h2 class="text-3xl font-bold text-center mb-12">Latest Blog Posts</h2>
+            <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8" id="blogGrid">
+                <!-- Blog posts will be dynamically loaded here -->
+            </div>
+        </div>
+    </section>
+
+    <!-- CMS Panel Modal -->
+    <div id="cmsModal" class="fixed inset-0 bg-black/80 backdrop-blur-sm z-50 hidden">
+        <div class="flex items-center justify-center min-h-screen p-4">
+            <div class="glass max-w-6xl w-full rounded-xl p-6">
+                <div class="flex justify-between items-center mb-6">
+                    <h3 class="text-2xl font-bold">Content Management System</h3>
+                    <button id="closeCMS" class="text-gray-400 hover:text-white text-2xl">
+                        <i class="fas fa-times"></i>
+                    </button>
+                </div>
+                
+                <div class="grid lg:grid-cols-3 gap-6">
+                    <!-- Left Column - Navigation -->
+                    <div class="space-y-4">
+                        <div class="glass p-4 rounded-lg">
+                            <h4 class="font-semibold mb-3">Quick Actions</h4>
+                            <div class="space-y-2">
+                                <button class="w-full text-left px-3 py-2 hover:bg-white/10 rounded transition-all">
+                                    <i class="fas fa-plus mr-2"></i>New Post
+                                </button>
+                                <button class="w-full text-left px-3 py-2 hover:bg-white/10 rounded transition-all">
+                                    <i class="fas fa-image mr-2"></i>Media Library
+                                </button>
+                                <button class="w-full text-left px-3 py-2 hover:bg-white/10 rounded transition-all">
+                                    <i class="fas fa-users mr-2"></i>User Management
+                                </button>
+                                <button class="w-full text-left px-3 py-2 hover:bg-white/10 rounded transition-all">
+                                    <i class="fas fa-chart-bar mr-2"></i>Analytics
+                                </button>
+                            </div>
+                        </div>
+                        
+                        <div class="glass p-4 rounded-lg">
+                            <h4 class="font-semibold mb-3">Recent Posts</h4>
+                            <div class="space-y-2 text-sm">
+                                <div class="flex justify-between items-center">
+                                    <span class="truncate">Getting Started with Next.js</span>
+                                    <span class="text-gray-400">2h ago</span>
+                                </div>
+                                <div class="flex justify-between items-center">
+                                    <span class="truncate">SEO Best Practices</span>
+                                    <span class="text-gray-400">1d ago</span>
+                                </div>
+                                <div class="flex justify-between items-center">
+                                    <span class="truncate">Content Strategy Guide</span>
+                                    <span class="text-gray-400">3d ago</span>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Middle Column - Content Editor -->
+                    <div class="glass p-4 rounded-lg">
+                        <h4 class="font-semibold mb-3">Content Editor</h4>
+                        <div class="space-y-4">
+                            <input type="text" placeholder="Post Title" class="w-full px-3 py-2 bg-white/10 border border-white/20 rounded text-white placeholder-gray-400">
+                            <div class="flex space-x-2">
+                                <button class="px-3 py-2 bg-white/10 hover:bg-white/20 rounded transition-all">
+                                    <i class="fas fa-bold"></i>
+                                </button>
+                                <button class="px-3 py-2 bg-white/10 hover:bg-white/20 rounded transition-all">
+                                    <i class="fas fa-italic"></i>
+                                </button>
+                                <button class="px-3 py-2 bg-white/10 hover:bg-white/20 rounded transition-all">
+                                    <i class="fas fa-link"></i>
+                                </button>
+                                <button class="px-3 py-2 bg-white/10 hover:bg-white/20 rounded transition-all">
+                                    <i class="fas fa-image"></i>
+                                </button>
+                            </div>
+                            <textarea placeholder="Write your content here..." rows="8" class="w-full px-3 py-2 bg-white/10 border border-white/20 rounded text-white placeholder-gray-400 resize-none"></textarea>
+                            <div class="flex justify-between items-center">
+                                <div class="flex space-x-2">
+                                    <span class="px-2 py-1 bg-blue-500/20 text-blue-300 text-xs rounded">Draft</span>
+                                    <span class="px-2 py-1 bg-green-500/20 text-green-300 text-xs rounded">SEO Ready</span>
+                                </div>
+                                <button class="px-4 py-2 bg-gradient-to-r from-blue-600 to-purple-600 text-white font-medium rounded hover:from-blue-700 hover:to-purple-700 transition-all">
+                                    Publish
+                                </button>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Right Column - Analytics -->
+                    <div class="glass p-4 rounded-lg">
+                        <h4 class="font-semibold mb-3">Analytics Overview</h4>
+                        <div class="space-y-4">
+                            <div class="text-center">
+                                <div class="text-2xl font-bold text-blue-400">1,234</div>
+                                <div class="text-sm text-gray-400">Total Views</div>
+                            </div>
+                            <div class="text-center">
+                                <div class="text-2xl font-bold text-green-400">89</div>
+                                <div class="text-sm text-gray-400">New Subscribers</div>
+                            </div>
+                            <div class="text-center">
+                                <div class="text-2xl font-bold text-purple-400">45</div>
+                                <div class="text-sm text-gray-400">Comments</div>
+                            </div>
+                            <div class="border-t border-white/20 pt-4">
+                                <h5 class="font-semibold mb-2">Top Posts</h5>
+                                <div class="space-y-2 text-sm">
+                                    <div class="flex justify-between">
+                                        <span>Next.js Guide</span>
+                                        <span class="text-gray-400">456 views</span>
+                                    </div>
+                                    <div class="flex justify-between">
+                                        <span>SEO Tips</span>
+                                        <span class="text-gray-400">234 views</span>
+                                    </div>
+                                    <div class="flex justify-between">
+                                        <span>React Patterns</span>
+                                        <span class="text-gray-400">189 views</span>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- About Section -->
+    <section class="py-16 px-4 sm:px-6 lg:px-8">
+        <div class="max-w-7xl mx-auto">
+            <div class="grid lg:grid-cols-2 gap-12 items-center">
+                <div>
+                    <h2 class="text-3xl font-bold mb-6">About This Project</h2>
+                    <p class="text-gray-300 mb-4">
+                        This blog platform demonstrates modern Next.js development practices including:
+                    </p>
+                    <ul class="space-y-2 text-gray-300">
+                        <li class="flex items-center">
+                            <i class="fas fa-check text-green-400 mr-2"></i>
+                            Next.js App Router and Server Components
+                        </li>
+                        <li class="flex items-center">
+                            <i class="fas fa-check text-green-400 mr-2"></i>
+                            Prisma ORM with PostgreSQL database
+                        </li>
+                        <li class="flex items-center">
+                            <i class="fas fa-check text-green-400 mr-2"></i>
+                            Markdown support with MDX
+                        </li>
+                        <li class="flex items-center">
+                            <i class="fas fa-check text-green-400 mr-2"></i>
+                            Role-based access control
+                        </li>
+                        <li class="flex items-center">
+                            <i class="fas fa-check text-green-400 mr-2"></i>
+                            SEO optimization and analytics
+                        </li>
+                    </ul>
+                </div>
+                <div class="glass p-8 rounded-xl">
+                    <h3 class="text-xl font-semibold mb-4">Technologies Used</h3>
+                    <div class="grid grid-cols-2 gap-3">
+                        <div class="flex items-center space-x-2">
+                            <span class="w-3 h-3 bg-black rounded-full"></span>
+                            <span>Next.js 15</span>
+                        </div>
+                        <div class="flex items-center space-x-2">
+                            <span class="w-3 h-3 bg-blue-600 rounded-full"></span>
+                            <span>TypeScript</span>
+                        </div>
+                        <div class="flex items-center space-x-2">
+                            <span class="w-3 h-3 bg-cyan-500 rounded-full"></span>
+                            <span>Tailwind CSS</span>
+                        </div>
+                        <div class="flex items-center space-x-2">
+                            <span class="w-3 h-3 bg-blue-500 rounded-full"></span>
+                            <span>Prisma</span>
+                        </div>
+                        <div class="flex items-center space-x-2">
+                            <span class="w-3 h-3 bg-blue-700 rounded-full"></span>
+                            <span>PostgreSQL</span>
+                        </div>
+                        <div class="flex items-center space-x-2">
+                            <span class="w-3 h-3 bg-yellow-500 rounded-full"></span>
+                            <span>MDX</span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Contact Section -->
+    <section class="py-16 px-4 sm:px-6 lg:px-8">
+        <div class="max-w-4xl mx-auto text-center">
+            <h2 class="text-3xl font-bold mb-6">Get in Touch</h2>
+            <p class="text-gray-300 mb-8">
+                Interested in this project or want to discuss a similar one? Let's connect!
+            </p>
+            <div class="flex flex-wrap justify-center gap-4">
+                <a href="mailto:touati.seif@example.com" class="px-6 py-3 bg-gradient-to-r from-blue-600 to-purple-600 text-white font-medium rounded-lg hover:from-blue-700 hover:to-purple-700 transition-all">
+                    <i class="fas fa-envelope mr-2"></i>
+                    Email Me
+                </a>
+                <a href="https://github.com/touatiseif" target="_blank" class="px-6 py-3 border-2 border-white/30 text-white font-medium rounded-lg hover:bg-white/10 transition-all">
+                    <i class="fab fa-github mr-2"></i>
+                    View Code
+                </a>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer class="py-8 px-4 sm:px-6 lg:px-8 border-t border-white/10">
+        <div class="max-w-7xl mx-auto text-center">
+            <p class="text-gray-400">
+                © 2025 Touati Seif. This is a portfolio project demonstrating Next.js development skills.
+            </p>
+        </div>
+    </footer>
+
+    <script>
+        // Sample blog post data
+        const blogPosts = [
+            {
+                id: 1,
+                title: "Getting Started with Next.js 15",
+                excerpt: "Learn the fundamentals of Next.js 15 and how to build modern web applications with the latest features and improvements.",
+                author: "Touati Seif",
+                date: "2025-01-09",
+                readTime: "5 min read",
+                category: "Development",
+                tags: ["Next.js", "React", "Web Development"],
+                image: "https://images.unsplash.com/photo-1555066931-4365d14bab8c?w=400&h=300&fit=crop"
+            },
+            {
+                id: 2,
+                title: "SEO Best Practices for Modern Websites",
+                excerpt: "Discover the essential SEO techniques that will help your website rank higher in search engines and attract more organic traffic.",
+                author: "Touati Seif",
+                date: "2025-01-08",
+                readTime: "8 min read",
+                category: "SEO",
+                tags: ["SEO", "Marketing", "Web Design"],
+                image: "https://images.unsplash.com/photo-1460925895917-afdab827c52f?w=400&h=300&fit=crop"
+            },
+            {
+                id: 3,
+                title: "Building a Content Management System",
+                excerpt: "Step-by-step guide to creating a robust CMS with user authentication, content editing, and publishing workflows.",
+                author: "Touati Seif",
+                date: "2025-01-07",
+                readTime: "12 min read",
+                category: "Development",
+                tags: ["CMS", "Full-Stack", "Database"],
+                image: "https://images.unsplash.com/photo-1551434678-e076c223a692?w=400&h=300&fit=crop"
+            },
+            {
+                id: 4,
+                title: "The Future of Web Development",
+                excerpt: "Explore emerging trends and technologies that are shaping the future of web development and what developers need to know.",
+                author: "Touati Seif",
+                date: "2025-01-06",
+                readTime: "6 min read",
+                category: "Technology",
+                tags: ["Future", "Innovation", "Trends"],
+                image: "https://images.unsplash.com/photo-1518709268805-4e9042af2176?w=400&h=300&fit=crop"
+            },
+            {
+                id: 5,
+                title: "Mastering TypeScript for React",
+                excerpt: "Learn how to leverage TypeScript to build more robust and maintainable React applications with better type safety.",
+                author: "Touati Seif",
+                date: "2025-01-05",
+                readTime: "10 min read",
+                category: "Development",
+                tags: ["TypeScript", "React", "Programming"],
+                image: "https://images.unsplash.com/photo-1516116216624-53e697fedbea?w=400&h=300&fit=crop"
+            },
+            {
+                id: 6,
+                title: "Content Strategy for Developers",
+                excerpt: "How developers can create effective content strategies that engage users and drive business growth through their applications.",
+                author: "Touati Seif",
+                date: "2025-01-04",
+                readTime: "7 min read",
+                category: "Strategy",
+                tags: ["Content", "Strategy", "Business"],
+                image: "https://images.unsplash.com/photo-1551288049-bebda4e38f71?w=400&h=300&fit=crop"
+            }
+        ];
+
+        // Initialize the app
+        function initApp() {
+            renderBlogPosts();
+            setupEventListeners();
+        }
+
+        // Render blog posts
+        function renderBlogPosts() {
+            const blogGrid = document.getElementById('blogGrid');
+            blogGrid.innerHTML = blogPosts.map(post => `
+                <div class="blog-card glass rounded-xl overflow-hidden">
+                    <div class="relative h-48 bg-gradient-to-br from-gray-700 to-gray-900">
+                        <img src="${post.image}" alt="${post.title}" class="w-full h-full object-cover">
+                        <div class="absolute inset-0 bg-gradient-to-t from-black/50 to-transparent"></div>
+                        <div class="absolute top-4 left-4">
+                            <span class="px-2 py-1 bg-blue-500/80 text-white text-xs rounded-full">${post.category}</span>
+                        </div>
+                        <div class="absolute bottom-4 left-4 right-4">
+                            <div class="flex items-center space-x-2 text-sm text-gray-300">
+                                <span><i class="fas fa-clock mr-1"></i>${post.readTime}</span>
+                                <span><i class="fas fa-calendar mr-1"></i>${formatDate(post.date)}</span>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="p-6">
+                        <h3 class="text-lg font-semibold mb-2 line-clamp-2">${post.title}</h3>
+                        <p class="text-gray-300 text-sm mb-4 line-clamp-3">${post.excerpt}</p>
+                        <div class="flex flex-wrap gap-2 mb-4">
+                            ${post.tags.map(tag => `
+                                <span class="tag px-2 py-1 bg-white/10 text-white text-xs rounded-full hover:bg-white/20 transition-all">
+                                    ${tag}
+                                </span>
+                            `).join('')}
+                        </div>
+                        <div class="flex justify-between items-center">
+                            <div class="flex items-center space-x-2">
+                                <div class="w-8 h-8 bg-gradient-to-r from-blue-500 to-purple-600 rounded-full flex items-center justify-center">
+                                    <span class="text-white font-bold text-xs">TS</span>
+                                </div>
+                                <span class="text-sm text-gray-300">${post.author}</span>
+                            </div>
+                            <button class="px-4 py-2 bg-gradient-to-r from-blue-600 to-purple-600 text-white font-medium rounded-lg hover:from-blue-700 hover:to-purple-700 transition-all">
+                                Read More
+                            </button>
+                        </div>
+                    </div>
+                </div>
+            `).join('');
+        }
+
+        // Format date
+        function formatDate(dateString) {
+            const date = new Date(dateString);
+            return date.toLocaleDateString('en-US', { 
+                month: 'short', 
+                day: 'numeric',
+                year: 'numeric'
+            });
+        }
+
+        // Setup event listeners
+        function setupEventListeners() {
+            const cmsBtn = document.getElementById('cmsBtn');
+            const cmsModal = document.getElementById('cmsModal');
+            const closeCMS = document.getElementById('closeCMS');
+
+            cmsBtn.addEventListener('click', () => {
+                cmsModal.classList.remove('hidden');
+            });
+
+            closeCMS.addEventListener('click', () => {
+                cmsModal.classList.add('hidden');
+            });
+
+            cmsModal.addEventListener('click', (e) => {
+                if (e.target === cmsModal) {
+                    cmsModal.classList.add('hidden');
+                }
+            });
+        }
+
+        // Initialize the app when DOM is loaded
+        document.addEventListener('DOMContentLoaded', initApp);
+    </script>
+</body>
+</html>

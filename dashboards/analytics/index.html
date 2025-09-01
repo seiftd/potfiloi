@@ -1,0 +1,486 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Analytics Dashboard - Touati Seif Portfolio</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css" rel="stylesheet">
+    <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+    <script>
+        tailwind.config = {
+            theme: {
+                extend: {
+                    colors: {
+                        primary: '#3b82f6',
+                        secondary: '#1f2937',
+                        accent: '#8b5cf6'
+                    }
+                }
+            }
+        }
+    </script>
+    <style>
+        .glass {
+            background: rgba(255, 255, 255, 0.1);
+            backdrop-filter: blur(10px);
+            border: 1px solid rgba(255, 255, 255, 0.2);
+        }
+        .gradient-text {
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
+        }
+        .metric-card {
+            transition: all 0.3s ease;
+        }
+        .metric-card:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 10px 25px -5px rgba(0, 0, 0, 0.1);
+        }
+        .chart-container {
+            transition: all 0.3s ease;
+        }
+        .chart-container:hover {
+            transform: scale(1.02);
+        }
+        .sidebar-item {
+            transition: all 0.2s ease;
+        }
+        .sidebar-item:hover {
+            background: rgba(255, 255, 255, 0.1);
+            transform: translateX(5px);
+        }
+        .sidebar-item.active {
+            background: rgba(59, 130, 246, 0.2);
+            border-right: 3px solid #3b82f6;
+        }
+    </style>
+</head>
+<body class="bg-gradient-to-br from-gray-900 via-gray-800 to-black text-white min-h-screen">
+    <!-- Sidebar -->
+    <div class="fixed left-0 top-0 h-full w-64 glass border-r border-white/10 z-40">
+        <div class="p-6">
+            <div class="flex items-center space-x-2 mb-8">
+                <div class="w-8 h-8 bg-gradient-to-r from-blue-500 to-purple-600 rounded-lg flex items-center justify-center">
+                    <span class="text-white font-bold text-sm">TS</span>
+                </div>
+                <span class="text-white font-semibold text-lg">Analytics</span>
+            </div>
+            
+            <nav class="space-y-2">
+                <a href="#" class="sidebar-item active flex items-center space-x-3 px-4 py-3 rounded-lg">
+                    <i class="fas fa-chart-line text-blue-400"></i>
+                    <span>Dashboard</span>
+                </a>
+                <a href="#" class="sidebar-item flex items-center space-x-3 px-4 py-3 rounded-lg">
+                    <i class="fas fa-users text-green-400"></i>
+                    <span>Users</span>
+                </a>
+                <a href="#" class="sidebar-item flex items-center space-x-3 px-4 py-3 rounded-lg">
+                    <i class="fas fa-shopping-cart text-purple-400"></i>
+                    <span>Sales</span>
+                </a>
+                <a href="#" class="sidebar-item flex items-center space-x-3 px-4 py-3 rounded-lg">
+                    <i class="fas fa-box text-yellow-400"></i>
+                    <span>Products</span>
+                </a>
+                <a href="#" class="sidebar-item flex items-center space-x-3 px-4 py-3 rounded-lg">
+                    <i class="fas fa-cog text-gray-400"></i>
+                    <span>Settings</span>
+                </a>
+            </nav>
+        </div>
+        
+        <div class="absolute bottom-6 left-6 right-6">
+            <a href="../" class="w-full px-4 py-2 bg-gradient-to-r from-blue-600 to-purple-600 text-white font-medium rounded-lg hover:from-blue-700 hover:to-purple-700 transition-all text-center block">
+                Back to Portfolio
+            </a>
+        </div>
+    </div>
+
+    <!-- Main Content -->
+    <div class="ml-64 p-6">
+        <!-- Header -->
+        <div class="flex justify-between items-center mb-8">
+            <div>
+                <h1 class="text-3xl font-bold">Analytics Dashboard</h1>
+                <p class="text-gray-400">Welcome back! Here's what's happening with your business today.</p>
+            </div>
+            <div class="flex items-center space-x-4">
+                <div class="flex items-center space-x-2">
+                    <span class="w-3 h-3 bg-green-500 rounded-full"></span>
+                    <span class="text-sm text-gray-400">Live Data</span>
+                </div>
+                <button class="px-4 py-2 bg-white/10 hover:bg-white/20 rounded-lg transition-all">
+                    <i class="fas fa-download mr-2"></i>
+                    Export Report
+                </button>
+            </div>
+        </div>
+
+        <!-- Key Metrics -->
+        <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6 mb-8">
+            <div class="metric-card glass p-6 rounded-xl">
+                <div class="flex items-center justify-between mb-4">
+                    <div class="w-12 h-12 bg-blue-500/20 rounded-lg flex items-center justify-center">
+                        <i class="fas fa-dollar-sign text-blue-400 text-xl"></i>
+                    </div>
+                    <span class="text-green-400 text-sm font-medium">+12.5%</span>
+                </div>
+                <h3 class="text-2xl font-bold mb-1">$2.4M</h3>
+                <p class="text-gray-400 text-sm">Total Revenue</p>
+            </div>
+
+            <div class="metric-card glass p-6 rounded-xl">
+                <div class="flex items-center justify-between mb-4">
+                    <div class="w-12 h-12 bg-green-500/20 rounded-lg flex items-center justify-center">
+                        <i class="fas fa-users text-green-400 text-xl"></i>
+                    </div>
+                    <span class="text-green-400 text-sm font-medium">+8.1%</span>
+                </div>
+                <h3 class="text-2xl font-bold mb-1">45.2K</h3>
+                <p class="text-gray-400 text-sm">Active Users</p>
+            </div>
+
+            <div class="metric-card glass p-6 rounded-xl">
+                <div class="flex items-center justify-between mb-4">
+                    <div class="w-12 h-12 bg-purple-500/20 rounded-lg flex items-center justify-center">
+                        <i class="fas fa-percentage text-purple-400 text-xl"></i>
+                    </div>
+                    <span class="text-green-400 text-sm font-medium">+2.4%</span>
+                </div>
+                <h3 class="text-2xl font-bold mb-1">3.2%</h3>
+                <p class="text-gray-400 text-sm">Conversion Rate</p>
+            </div>
+
+            <div class="metric-card glass p-6 rounded-xl">
+                <div class="flex items-center justify-between mb-4">
+                    <div class="w-12 h-12 bg-yellow-500/20 rounded-lg flex items-center justify-center">
+                        <i class="fas fa-clock text-yellow-400 text-xl"></i>
+                    </div>
+                    <span class="text-green-400 text-sm font-medium">+1.2%</span>
+                </div>
+                <h3 class="text-2xl font-bold mb-1">4m 32s</h3>
+                <p class="text-gray-400 text-sm">Avg. Session</p>
+            </div>
+        </div>
+
+        <!-- Charts Section -->
+        <div class="grid lg:grid-cols-2 gap-6 mb-8">
+            <!-- Revenue Chart -->
+            <div class="glass p-6 rounded-xl">
+                <div class="flex justify-between items-center mb-6">
+                    <h3 class="text-xl font-semibold">Revenue Overview</h3>
+                    <div class="flex space-x-2">
+                        <button class="px-3 py-1 bg-blue-500/20 text-blue-300 rounded text-sm">7D</button>
+                        <button class="px-3 py-1 bg-white/10 text-gray-300 rounded text-sm">30D</button>
+                        <button class="px-3 py-1 bg-white/10 text-gray-300 rounded text-sm">90D</button>
+                    </div>
+                </div>
+                <div class="chart-container h-64">
+                    <canvas id="revenueChart"></canvas>
+                </div>
+            </div>
+
+            <!-- User Growth Chart -->
+            <div class="glass p-6 rounded-xl">
+                <div class="flex justify-between items-center mb-6">
+                    <h3 class="text-xl font-semibold">User Growth</h3>
+                    <div class="flex space-x-2">
+                        <button class="px-3 py-1 bg-green-500/20 text-green-300 rounded text-sm">Monthly</button>
+                        <button class="px-3 py-1 bg-white/10 text-gray-300 rounded text-sm">Quarterly</button>
+                    </div>
+                </div>
+                <div class="chart-container h-64">
+                    <canvas id="userChart"></canvas>
+                </div>
+            </div>
+        </div>
+
+        <!-- Detailed Analytics -->
+        <div class="grid lg:grid-cols-3 gap-6 mb-8">
+            <!-- Top Products -->
+            <div class="glass p-6 rounded-xl">
+                <h3 class="text-xl font-semibold mb-4">Top Products</h3>
+                <div class="space-y-4">
+                    <div class="flex items-center justify-between">
+                        <div class="flex items-center space-x-3">
+                            <div class="w-10 h-10 bg-blue-500/20 rounded-lg flex items-center justify-center">
+                                <i class="fas fa-box text-blue-400"></i>
+                            </div>
+                            <div>
+                                <p class="font-medium">Product A</p>
+                                <p class="text-sm text-gray-400">Electronics</p>
+                            </div>
+                        </div>
+                        <span class="text-lg font-semibold">$45.2K</span>
+                    </div>
+                    <div class="flex items-center justify-between">
+                        <div class="flex items-center space-x-3">
+                            <div class="w-10 h-10 bg-green-500/20 rounded-lg flex items-center justify-center">
+                                <i class="fas fa-tshirt text-green-400"></i>
+                            </div>
+                            <div>
+                                <p class="font-medium">Product B</p>
+                                <p class="text-sm text-gray-400">Fashion</p>
+                            </div>
+                        </div>
+                        <span class="text-lg font-semibold">$32.8K</span>
+                    </div>
+                    <div class="flex items-center justify-between">
+                        <div class="flex items-center space-x-3">
+                            <div class="w-10 h-10 bg-purple-500/20 rounded-lg flex items-center justify-center">
+                                <i class="fas fa-book text-purple-400"></i>
+                            </div>
+                            <div>
+                                <p class="font-medium">Product C</p>
+                                <p class="text-sm text-gray-400">Books</p>
+                            </div>
+                        </div>
+                        <span class="text-lg font-semibold">$28.4K</span>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Traffic Sources -->
+            <div class="glass p-6 rounded-xl">
+                <h3 class="text-xl font-semibold mb-4">Traffic Sources</h3>
+                <div class="space-y-4">
+                    <div class="flex items-center justify-between">
+                        <div class="flex items-center space-x-2">
+                            <div class="w-3 h-3 bg-blue-500 rounded-full"></div>
+                            <span>Organic Search</span>
+                        </div>
+                        <span class="font-semibold">42%</span>
+                    </div>
+                    <div class="flex items-center justify-between">
+                        <div class="flex items-center space-x-2">
+                            <div class="w-3 h-3 bg-green-500 rounded-full"></div>
+                            <span>Direct</span>
+                        </div>
+                        <span class="font-semibold">28%</span>
+                    </div>
+                    <div class="flex items-center justify-between">
+                        <div class="flex items-center space-x-2">
+                            <div class="w-3 h-3 bg-purple-500 rounded-full"></div>
+                            <span>Social Media</span>
+                        </div>
+                        <span class="font-semibold">18%</span>
+                    </div>
+                    <div class="flex items-center justify-between">
+                        <div class="flex items-center space-x-2">
+                            <div class="w-3 h-3 bg-yellow-500 rounded-full"></div>
+                            <span>Referral</span>
+                        </div>
+                        <span class="font-semibold">12%</span>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Recent Activity -->
+            <div class="glass p-6 rounded-xl">
+                <h3 class="text-xl font-semibold mb-4">Recent Activity</h3>
+                <div class="space-y-4">
+                    <div class="flex items-start space-x-3">
+                        <div class="w-8 h-8 bg-green-500/20 rounded-full flex items-center justify-center">
+                            <i class="fas fa-plus text-green-400 text-sm"></i>
+                        </div>
+                        <div>
+                            <p class="text-sm font-medium">New user registered</p>
+                            <p class="text-xs text-gray-400">2 minutes ago</p>
+                        </div>
+                    </div>
+                    <div class="flex items-start space-x-3">
+                        <div class="w-8 h-8 bg-blue-500/20 rounded-full flex items-center justify-center">
+                            <i class="fas fa-shopping-cart text-blue-400 text-sm"></i>
+                        </div>
+                        <div>
+                            <p class="text-sm font-medium">Order completed</p>
+                            <p class="text-xs text-gray-400">15 minutes ago</p>
+                        </div>
+                    </div>
+                    <div class="flex items-start space-x-3">
+                        <div class="w-8 h-8 bg-purple-500/20 rounded-full flex items-center justify-center">
+                            <i class="fas fa-star text-purple-400 text-sm"></i>
+                        </div>
+                        <div>
+                            <p class="text-sm font-medium">New review posted</p>
+                            <p class="text-xs text-gray-400">1 hour ago</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- Performance Metrics -->
+        <div class="glass p-6 rounded-xl">
+            <h3 class="text-xl font-semibold mb-6">Performance Metrics</h3>
+            <div class="grid md:grid-cols-4 gap-6">
+                <div class="text-center">
+                    <div class="w-20 h-20 bg-blue-500/20 rounded-full flex items-center justify-center mx-auto mb-3">
+                        <i class="fas fa-tachometer-alt text-blue-400 text-2xl"></i>
+                    </div>
+                    <h4 class="font-semibold mb-1">Page Load Speed</h4>
+                    <p class="text-2xl font-bold text-blue-400">1.2s</p>
+                    <p class="text-sm text-gray-400">Target: &lt;2s</p>
+                </div>
+                <div class="text-center">
+                    <div class="w-20 h-20 bg-green-500/20 rounded-full flex items-center justify-center mx-auto mb-3">
+                        <i class="fas fa-mobile-alt text-green-400 text-2xl"></i>
+                    </div>
+                    <h4 class="font-semibold mb-1">Mobile Score</h4>
+                    <p class="text-2xl font-bold text-green-400">94</p>
+                    <p class="text-sm text-gray-400">Target: &gt;90</p>
+                </div>
+                <div class="text-center">
+                    <div class="w-20 h-20 bg-purple-500/20 rounded-full flex items-center justify-center mx-auto mb-3">
+                        <i class="fas fa-search text-purple-400 text-2xl"></i>
+                    </div>
+                    <h4 class="font-semibold mb-1">SEO Score</h4>
+                    <p class="text-2xl font-bold text-purple-400">87</p>
+                    <p class="text-sm text-gray-400">Target: &gt;80</p>
+                </div>
+                <div class="text-center">
+                    <div class="w-20 h-20 bg-yellow-500/20 rounded-full flex items-center justify-center mx-auto mb-3">
+                        <i class="fas fa-shield-alt text-yellow-400 text-2xl"></i>
+                    </div>
+                    <h4 class="font-semibold mb-1">Security Score</h4>
+                    <p class="text-2xl font-bold text-yellow-400">96</p>
+                    <p class="text-sm text-gray-400">Target: &gt;90</p>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <script>
+        // Initialize charts when DOM is loaded
+        document.addEventListener('DOMContentLoaded', function() {
+            // Revenue Chart
+            const revenueCtx = document.getElementById('revenueChart').getContext('2d');
+            const revenueChart = new Chart(revenueCtx, {
+                type: 'line',
+                data: {
+                    labels: ['Mon', 'Tue', 'Wed', 'Thu', 'Fri', 'Sat', 'Sun'],
+                    datasets: [{
+                        label: 'Revenue',
+                        data: [12000, 19000, 15000, 25000, 22000, 30000, 28000],
+                        borderColor: '#3b82f6',
+                        backgroundColor: 'rgba(59, 130, 246, 0.1)',
+                        borderWidth: 3,
+                        fill: true,
+                        tension: 0.4
+                    }]
+                },
+                options: {
+                    responsive: true,
+                    maintainAspectRatio: false,
+                    plugins: {
+                        legend: {
+                            display: false
+                        }
+                    },
+                    scales: {
+                        y: {
+                            beginAtZero: true,
+                            grid: {
+                                color: 'rgba(255, 255, 255, 0.1)'
+                            },
+                            ticks: {
+                                color: '#9ca3af'
+                            }
+                        },
+                        x: {
+                            grid: {
+                                color: 'rgba(255, 255, 255, 0.1)'
+                            },
+                            ticks: {
+                                color: '#9ca3af'
+                            }
+                        }
+                    }
+                }
+            });
+
+            // User Growth Chart
+            const userCtx = document.getElementById('userChart').getContext('2d');
+            const userChart = new Chart(userCtx, {
+                type: 'bar',
+                data: {
+                    labels: ['Jan', 'Feb', 'Mar', 'Apr', 'May', 'Jun'],
+                    datasets: [{
+                        label: 'New Users',
+                        data: [1200, 1900, 1500, 2500, 2200, 3000],
+                        backgroundColor: 'rgba(34, 197, 94, 0.8)',
+                        borderColor: '#22c55e',
+                        borderWidth: 1,
+                        borderRadius: 4
+                    }]
+                },
+                options: {
+                    responsive: true,
+                    maintainAspectRatio: false,
+                    plugins: {
+                        legend: {
+                            display: false
+                        }
+                    },
+                    scales: {
+                        y: {
+                            beginAtZero: true,
+                            grid: {
+                                color: 'rgba(255, 255, 255, 0.1)'
+                            },
+                            ticks: {
+                                color: '#9ca3af'
+                            }
+                        },
+                        x: {
+                            grid: {
+                                color: 'rgba(255, 255, 255, 0.1)'
+                            },
+                            ticks: {
+                                color: '#9ca3af'
+                            }
+                        }
+                    }
+                }
+            });
+
+            // Add interactivity to sidebar
+            const sidebarItems = document.querySelectorAll('.sidebar-item');
+            sidebarItems.forEach(item => {
+                item.addEventListener('click', function(e) {
+                    e.preventDefault();
+                    sidebarItems.forEach(i => i.classList.remove('active'));
+                    this.classList.add('active');
+                });
+            });
+
+            // Simulate real-time updates
+            setInterval(() => {
+                // Update metrics randomly
+                const metrics = document.querySelectorAll('.metric-card h3');
+                metrics.forEach(metric => {
+                    const currentValue = parseFloat(metric.textContent.replace(/[^0-9.]/g, ''));
+                    const change = (Math.random() - 0.5) * 0.1; // ±5% change
+                    const newValue = currentValue * (1 + change);
+                    
+                    if (metric.textContent.includes('$')) {
+                        metric.textContent = '$' + (newValue / 1000000).toFixed(1) + 'M';
+                    } else if (metric.textContent.includes('K')) {
+                        metric.textContent = (newValue / 1000).toFixed(1) + 'K';
+                    } else if (metric.textContent.includes('%')) {
+                        metric.textContent = newValue.toFixed(1) + '%';
+                    } else if (metric.textContent.includes('m')) {
+                        const minutes = Math.floor(newValue);
+                        const seconds = Math.floor((newValue - minutes) * 60);
+                        metric.textContent = minutes + 'm ' + seconds + 's';
+                    }
+                });
+            }, 5000);
+        });
+    </script>
+</body>
+</html>

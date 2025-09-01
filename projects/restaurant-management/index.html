@@ -1,0 +1,572 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Restaurant Management System - Touati Seif Portfolio</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css" rel="stylesheet">
+    <script>
+        tailwind.config = {
+            theme: {
+                extend: {
+                    colors: {
+                        primary: '#3b82f6',
+                        secondary: '#1f2937',
+                        accent: '#8b5cf6'
+                    }
+                }
+            }
+        }
+    </script>
+    <style>
+        .glass {
+            background: rgba(255, 255, 255, 0.1);
+            backdrop-filter: blur(10px);
+            border: 1px solid rgba(255, 255, 255, 0.2);
+        }
+        .gradient-text {
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
+        }
+        .menu-card {
+            transition: all 0.3s ease;
+        }
+        .menu-card:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 20px 25px -5px rgba(0, 0, 0, 0.1), 0 10px 10px -5px rgba(0, 0, 0, 0.04);
+        }
+        .order-item {
+            animation: slideIn 0.3s ease-out;
+        }
+        @keyframes slideIn {
+            from {
+                opacity: 0;
+                transform: translateX(-20px);
+            }
+            to {
+                opacity: 1;
+                transform: translateX(0);
+            }
+        }
+        .status-badge {
+            transition: all 0.2s ease;
+        }
+        .status-badge:hover {
+            transform: scale(1.05);
+        }
+    </style>
+</head>
+<body class="bg-gradient-to-br from-gray-900 via-gray-800 to-black text-white min-h-screen">
+    <!-- Navigation -->
+    <nav class="fixed top-0 left-0 right-0 z-50 glass border-b border-white/10">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="flex justify-between items-center h-16">
+                <div class="flex items-center space-x-2">
+                    <div class="w-8 h-8 bg-gradient-to-r from-blue-500 to-purple-600 rounded-lg flex items-center justify-center">
+                        <span class="text-white font-bold text-sm">TS</span>
+                    </div>
+                    <span class="text-white font-semibold text-lg">Restaurant Management System</span>
+                </div>
+                <div class="flex items-center space-x-4">
+                    <button id="dashboardBtn" class="px-4 py-2 bg-gradient-to-r from-green-600 to-blue-600 text-white font-medium rounded-lg hover:from-green-700 hover:to-blue-700 transition-all">
+                        <i class="fas fa-chart-line mr-2"></i>
+                        Dashboard
+                    </button>
+                    <a href="../" class="px-4 py-2 bg-gradient-to-r from-blue-600 to-purple-600 text-white font-medium rounded-lg hover:from-blue-700 hover:to-purple-700 transition-all">
+                        Back to Portfolio
+                    </a>
+                </div>
+            </div>
+        </div>
+    </nav>
+
+    <!-- Hero Section -->
+    <section class="pt-20 pb-16 px-4 sm:px-6 lg:px-8">
+        <div class="max-w-7xl mx-auto text-center">
+            <h1 class="text-4xl md:text-6xl font-bold mb-6">
+                <span class="gradient-text">Complete Restaurant</span>
+                <br>
+                <span class="text-white">Management Solution</span>
+            </h1>
+            <p class="text-xl text-gray-300 max-w-3xl mx-auto mb-8">
+                A comprehensive restaurant management system built with Vue.js, featuring menu management, 
+                order tracking, inventory control, and staff management for modern restaurants.
+            </p>
+            <div class="flex flex-wrap justify-center gap-4">
+                <button class="px-8 py-4 bg-gradient-to-r from-blue-600 to-purple-600 text-white font-semibold rounded-lg hover:from-blue-700 hover:to-purple-700 transition-all">
+                    <i class="fas fa-utensils mr-2"></i>
+                    View Menu
+                </button>
+                <button id="demoBtn" class="px-8 py-4 border-2 border-white/30 text-white font-semibold rounded-lg hover:bg-white/10 transition-all">
+                    <i class="fas fa-play mr-2"></i>
+                    Watch Demo
+                </button>
+            </div>
+        </div>
+    </section>
+
+    <!-- Features Section -->
+    <section class="py-16 px-4 sm:px-6 lg:px-8">
+        <div class="max-w-7xl mx-auto">
+            <h2 class="text-3xl font-bold text-center mb-12">Key Features</h2>
+            <div class="grid md:grid-cols-3 gap-8">
+                <div class="glass p-6 rounded-xl text-center">
+                    <div class="w-16 h-16 bg-blue-500/20 rounded-full flex items-center justify-center mx-auto mb-4">
+                        <i class="fas fa-utensils text-2xl text-blue-400"></i>
+                    </div>
+                    <h3 class="text-xl font-semibold mb-2">Menu Management</h3>
+                    <p class="text-gray-300">Easily manage your menu items, categories, pricing, and availability in real-time.</p>
+                </div>
+                <div class="glass p-6 rounded-xl text-center">
+                    <div class="w-16 h-16 bg-green-500/20 rounded-full flex items-center justify-center mx-auto mb-4">
+                        <i class="fas fa-shopping-cart text-2xl text-green-400"></i>
+                    </div>
+                    <h3 class="text-xl font-semibold mb-2">Order Tracking</h3>
+                    <p class="text-gray-300">Track orders from kitchen to table with real-time updates and status notifications.</p>
+                </div>
+                <div class="glass p-6 rounded-xl text-center">
+                    <div class="w-16 h-16 bg-purple-500/20 rounded-full flex items-center justify-center mx-auto mb-4">
+                        <i class="fas fa-boxes text-2xl text-purple-400"></i>
+                    </div>
+                    <h3 class="text-xl font-semibold mb-2">Inventory Control</h3>
+                    <p class="text-gray-300">Monitor stock levels, track usage, and automate reorder notifications.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Menu Section -->
+    <section class="py-16 px-4 sm:px-6 lg:px-8">
+        <div class="max-w-7xl mx-auto">
+            <h2 class="text-3xl font-bold text-center mb-12">Featured Menu Items</h2>
+            <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8" id="menuGrid">
+                <!-- Menu items will be dynamically loaded here -->
+            </div>
+        </div>
+    </section>
+
+    <!-- Dashboard Modal -->
+    <div id="dashboardModal" class="fixed inset-0 bg-black/80 backdrop-blur-sm z-50 hidden">
+        <div class="flex items-center justify-center min-h-screen p-4">
+            <div class="glass max-w-7xl w-full rounded-xl p-6">
+                <div class="flex justify-between items-center mb-6">
+                    <h3 class="text-2xl font-bold">Restaurant Dashboard</h3>
+                    <button id="closeDashboard" class="text-gray-400 hover:text-white text-2xl">
+                        <i class="fas fa-times"></i>
+                    </button>
+                </div>
+                
+                <div class="grid lg:grid-cols-3 gap-6">
+                    <!-- Left Column - Quick Stats -->
+                    <div class="space-y-4">
+                        <div class="glass p-4 rounded-lg">
+                            <h4 class="font-semibold mb-3">Today's Overview</h4>
+                            <div class="space-y-3">
+                                <div class="flex justify-between items-center">
+                                    <span class="text-gray-300">Orders</span>
+                                    <span class="text-2xl font-bold text-blue-400">24</span>
+                                </div>
+                                <div class="flex justify-between items-center">
+                                    <span class="text-gray-300">Revenue</span>
+                                    <span class="text-2xl font-bold text-green-400">$1,234</span>
+                                </div>
+                                <div class="flex justify-between items-center">
+                                    <span class="text-gray-300">Customers</span>
+                                    <span class="text-2xl font-bold text-purple-400">18</span>
+                                </div>
+                            </div>
+                        </div>
+                        
+                        <div class="glass p-4 rounded-lg">
+                            <h4 class="font-semibold mb-3">Quick Actions</h4>
+                            <div class="space-y-2">
+                                <button class="w-full text-left px-3 py-2 hover:bg-white/10 rounded transition-all">
+                                    <i class="fas fa-plus mr-2"></i>New Order
+                                </button>
+                                <button class="w-full text-left px-3 py-2 hover:bg-white/10 rounded transition-all">
+                                    <i class="fas fa-edit mr-2"></i>Edit Menu
+                                </button>
+                                <button class="w-full text-left px-3 py-2 hover:bg-white/10 rounded transition-all">
+                                    <i class="fas fa-users mr-2"></i>Staff Schedule
+                                </button>
+                                <button class="w-full text-left px-3 py-2 hover:bg-white/10 rounded transition-all">
+                                    <i class="fas fa-chart-bar mr-2"></i>Reports
+                                </button>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Middle Column - Active Orders -->
+                    <div class="glass p-4 rounded-lg">
+                        <h4 class="font-semibold mb-3">Active Orders</h4>
+                        <div class="space-y-3" id="activeOrders">
+                            <!-- Active orders will be dynamically loaded here -->
+                        </div>
+                    </div>
+
+                    <!-- Right Column - Inventory Alerts -->
+                    <div class="glass p-4 rounded-lg">
+                        <h4 class="font-semibold mb-3">Inventory Alerts</h4>
+                        <div class="space-y-3" id="inventoryAlerts">
+                            <!-- Inventory alerts will be dynamically loaded here -->
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- About Section -->
+    <section class="py-16 px-4 sm:px-6 lg:px-8">
+        <div class="max-w-7xl mx-auto">
+            <div class="grid lg:grid-cols-2 gap-12 items-center">
+                <div>
+                    <h2 class="text-3xl font-bold mb-6">About This Project</h2>
+                    <p class="text-gray-300 mb-4">
+                        This restaurant management system demonstrates modern Vue.js development practices including:
+                    </p>
+                    <ul class="space-y-2 text-gray-300">
+                        <li class="flex items-center">
+                            <i class="fas fa-check text-green-400 mr-2"></i>
+                            Vue.js 3 Composition API and Pinia state management
+                        </li>
+                        <li class="flex items-center">
+                            <i class="fas fa-check text-green-400 mr-2"></i>
+                            Real-time order tracking and notifications
+                        </li>
+                        <li class="flex items-center">
+                            <i class="fas fa-check text-green-400 mr-2"></i>
+                            Inventory management with automated alerts
+                        </li>
+                        <li class="flex items-center">
+                            <i class="fas fa-check text-green-400 mr-2"></i>
+                            Staff scheduling and role management
+                        </li>
+                        <li class="flex items-center">
+                            <i class="fas fa-check text-green-400 mr-2"></i>
+                            Comprehensive reporting and analytics
+                        </li>
+                    </ul>
+                </div>
+                <div class="glass p-8 rounded-xl">
+                    <h3 class="text-xl font-semibold mb-4">Technologies Used</h3>
+                    <div class="grid grid-cols-2 gap-3">
+                        <div class="flex items-center space-x-2">
+                            <span class="w-3 h-3 bg-green-500 rounded-full"></span>
+                            <span>Vue.js 3</span>
+                        </div>
+                        <div class="flex items-center space-x-2">
+                            <span class="w-3 h-3 bg-blue-600 rounded-full"></span>
+                            <span>TypeScript</span>
+                        </div>
+                        <div class="flex items-center space-x-2">
+                            <span class="w-3 h-3 bg-cyan-500 rounded-full"></span>
+                            <span>Tailwind CSS</span>
+                        </div>
+                        <div class="flex items-center space-x-2">
+                            <span class="w-3 h-3 bg-green-500 rounded-full"></span>
+                            <span>Node.js</span>
+                        </div>
+                        <div class="flex items-center space-x-2">
+                            <span class="w-3 h-3 bg-blue-700 rounded-full"></span>
+                            <span>MySQL</span>
+                        </div>
+                        <div class="flex items-center space-x-2">
+                            <span class="w-3 h-3 bg-yellow-500 rounded-full"></span>
+                            <span>Pinia</span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Contact Section -->
+    <section class="py-16 px-4 sm:px-6 lg:px-8">
+        <div class="max-w-4xl mx-auto text-center">
+            <h2 class="text-3xl font-bold mb-6">Get in Touch</h2>
+            <p class="text-gray-300 mb-8">
+                Interested in this project or want to discuss a similar one? Let's connect!
+            </p>
+            <div class="flex flex-wrap justify-center gap-4">
+                <a href="mailto:touati.seif@example.com" class="px-6 py-3 bg-gradient-to-r from-blue-600 to-purple-600 text-white font-medium rounded-lg hover:from-blue-700 hover:to-purple-700 transition-all">
+                    <i class="fas fa-envelope mr-2"></i>
+                    Email Me
+                </a>
+                <a href="https://github.com/touatiseif" target="_blank" class="px-6 py-3 border-2 border-white/30 text-white font-medium rounded-lg hover:bg-white/10 transition-all">
+                    <i class="fab fa-github mr-2"></i>
+                    View Code
+                </a>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer class="py-8 px-4 sm:px-6 lg:px-8 border-t border-white/10">
+        <div class="max-w-7xl mx-auto text-center">
+            <p class="text-gray-400">
+                © 2025 Touati Seif. This is a portfolio project demonstrating Vue.js development skills.
+            </p>
+        </div>
+    </footer>
+
+    <script>
+        // Sample menu data
+        const menuItems = [
+            {
+                id: 1,
+                name: "Grilled Salmon",
+                description: "Fresh Atlantic salmon with herbs and lemon butter sauce",
+                price: 28.99,
+                category: "Main Course",
+                image: "https://images.unsplash.com/photo-1467003909585-2f8a72700288?w=400&h=300&fit=crop",
+                preparationTime: "20 min",
+                isAvailable: true
+            },
+            {
+                id: 2,
+                name: "Beef Tenderloin",
+                description: "Premium cut beef tenderloin with red wine reduction",
+                price: 34.99,
+                category: "Main Course",
+                image: "https://images.unsplash.com/photo-1546833999-b9f581a1996d?w=400&h=300&fit=crop",
+                preparationTime: "25 min",
+                isAvailable: true
+            },
+            {
+                id: 3,
+                name: "Caesar Salad",
+                description: "Fresh romaine lettuce with parmesan and croutons",
+                price: 12.99,
+                category: "Appetizer",
+                image: "https://images.unsplash.com/photo-1546793665-c74683f339c1?w=400&h=300&fit=crop",
+                preparationTime: "8 min",
+                isAvailable: true
+            },
+            {
+                id: 4,
+                name: "Tiramisu",
+                description: "Classic Italian dessert with coffee and mascarpone",
+                price: 9.99,
+                category: "Dessert",
+                image: "https://images.unsplash.com/photo-1571877227200-a0d98ea607e9?w=400&h=300&fit=crop",
+                preparationTime: "5 min",
+                isAvailable: true
+            },
+            {
+                id: 5,
+                name: "Pasta Carbonara",
+                description: "Spaghetti with eggs, cheese, and pancetta",
+                price: 18.99,
+                category: "Main Course",
+                image: "https://images.unsplash.com/photo-1621996346565-e3dbc353d2e5?w=400&h=300&fit=crop",
+                preparationTime: "15 min",
+                isAvailable: true
+            },
+            {
+                id: 6,
+                name: "Chocolate Mousse",
+                description: "Rich chocolate mousse with fresh berries",
+                price: 8.99,
+                category: "Dessert",
+                image: "https://images.unsplash.com/photo-1578985545062-69928b1d9587?w=400&h=300&fit=crop",
+                preparationTime: "3 min",
+                isAvailable: false
+            }
+        ];
+
+        // Sample active orders
+        const activeOrders = [
+            {
+                id: "ORD-001",
+                table: "Table 5",
+                items: ["Grilled Salmon", "Caesar Salad"],
+                status: "preparing",
+                time: "12:30 PM"
+            },
+            {
+                id: "ORD-002",
+                table: "Table 3",
+                items: ["Beef Tenderloin", "Pasta Carbonara"],
+                status: "ready",
+                time: "12:25 PM"
+            },
+            {
+                id: "ORD-003",
+                table: "Table 7",
+                items: ["Tiramisu", "Chocolate Mousse"],
+                status: "served",
+                time: "12:20 PM"
+            }
+        ];
+
+        // Sample inventory alerts
+        const inventoryAlerts = [
+            {
+                item: "Fresh Salmon",
+                level: "Low",
+                current: "2 kg",
+                threshold: "5 kg",
+                priority: "high"
+            },
+            {
+                item: "Parmesan Cheese",
+                level: "Critical",
+                current: "0.5 kg",
+                threshold: "2 kg",
+                priority: "critical"
+            },
+            {
+                item: "Fresh Basil",
+                level: "Medium",
+                current: "3 bunches",
+                threshold: "5 bunches",
+                priority: "medium"
+            }
+        ];
+
+        // Initialize the app
+        function initApp() {
+            renderMenuItems();
+            setupEventListeners();
+        }
+
+        // Render menu items
+        function renderMenuItems() {
+            const menuGrid = document.getElementById('menuGrid');
+            menuGrid.innerHTML = menuItems.map(item => `
+                <div class="menu-card glass rounded-xl overflow-hidden">
+                    <div class="relative h-48 bg-gradient-to-br from-gray-700 to-gray-900">
+                        <img src="${item.image}" alt="${item.name}" class="w-full h-full object-cover">
+                        <div class="absolute inset-0 bg-gradient-to-t from-black/50 to-transparent"></div>
+                        <div class="absolute top-4 left-4">
+                            <span class="px-2 py-1 bg-blue-500/80 text-white text-xs rounded-full">${item.category}</span>
+                        </div>
+                        <div class="absolute top-4 right-4">
+                            <span class="px-2 py-1 ${item.isAvailable ? 'bg-green-500/80' : 'bg-red-500/80'} text-white text-xs rounded-full">
+                                ${item.isAvailable ? 'Available' : 'Unavailable'}
+                            </span>
+                        </div>
+                        <div class="absolute bottom-4 left-4 right-4">
+                            <div class="flex items-center space-x-2 text-sm text-gray-300">
+                                <span><i class="fas fa-clock mr-1"></i>${item.preparationTime}</span>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="p-6">
+                        <h3 class="text-lg font-semibold mb-2">${item.name}</h3>
+                        <p class="text-gray-300 text-sm mb-4">${item.description}</p>
+                        <div class="flex justify-between items-center">
+                            <span class="text-2xl font-bold text-blue-400">$${item.price}</span>
+                            <button class="px-4 py-2 bg-gradient-to-r from-blue-600 to-purple-600 text-white font-medium rounded-lg hover:from-blue-700 hover:to-purple-700 transition-all ${!item.isAvailable ? 'opacity-50 cursor-not-allowed' : ''}" ${!item.isAvailable ? 'disabled' : ''}>
+                                ${item.isAvailable ? 'Add to Order' : 'Unavailable'}
+                            </button>
+                        </div>
+                    </div>
+                </div>
+            `).join('');
+        }
+
+        // Render active orders
+        function renderActiveOrders() {
+            const activeOrdersContainer = document.getElementById('activeOrders');
+            activeOrdersContainer.innerHTML = activeOrders.map(order => `
+                <div class="order-item border border-white/20 rounded-lg p-3">
+                    <div class="flex justify-between items-start mb-2">
+                        <div>
+                            <h5 class="font-semibold">${order.id}</h5>
+                            <p class="text-sm text-gray-400">${order.table}</p>
+                        </div>
+                        <span class="status-badge px-2 py-1 text-xs rounded-full ${getStatusColor(order.status)}">
+                            ${getStatusText(order.status)}
+                        </span>
+                    </div>
+                    <div class="text-sm text-gray-300 mb-2">
+                        ${order.items.join(', ')}
+                    </div>
+                    <div class="text-xs text-gray-400">
+                        <i class="fas fa-clock mr-1"></i>${order.time}
+                    </div>
+                </div>
+            `).join('');
+        }
+
+        // Render inventory alerts
+        function renderInventoryAlerts() {
+            const inventoryAlertsContainer = document.getElementById('inventoryAlerts');
+            inventoryAlertsContainer.innerHTML = inventoryAlerts.map(alert => `
+                <div class="border border-white/20 rounded-lg p-3">
+                    <div class="flex justify-between items-start mb-2">
+                        <h5 class="font-semibold">${alert.item}</h5>
+                        <span class="status-badge px-2 py-1 text-xs rounded-full ${getPriorityColor(alert.priority)}">
+                            ${alert.level}
+                        </span>
+                    </div>
+                    <div class="text-sm text-gray-300">
+                        Current: ${alert.current} | Threshold: ${alert.threshold}
+                    </div>
+                </div>
+            `).join('');
+        }
+
+        // Get status color
+        function getStatusColor(status) {
+            const colors = {
+                'preparing': 'bg-yellow-500/20 text-yellow-300 border border-yellow-500/30',
+                'ready': 'bg-green-500/20 text-green-300 border border-green-500/30',
+                'served': 'bg-blue-500/20 text-blue-300 border border-blue-500/30'
+            };
+            return colors[status] || 'bg-gray-500/20 text-gray-300 border border-gray-500/30';
+        }
+
+        // Get status text
+        function getStatusText(status) {
+            const texts = {
+                'preparing': 'Preparing',
+                'ready': 'Ready',
+                'served': 'Served'
+            };
+            return texts[status] || status;
+        }
+
+        // Get priority color
+        function getPriorityColor(priority) {
+            const colors = {
+                'high': 'bg-orange-500/20 text-orange-300 border border-orange-500/30',
+                'critical': 'bg-red-500/20 text-red-300 border border-red-500/30',
+                'medium': 'bg-yellow-500/20 text-yellow-300 border border-yellow-500/30'
+            };
+            return colors[priority] || 'bg-gray-500/20 text-gray-300 border border-gray-500/30';
+        }
+
+        // Setup event listeners
+        function setupEventListeners() {
+            const dashboardBtn = document.getElementById('dashboardBtn');
+            const dashboardModal = document.getElementById('dashboardModal');
+            const closeDashboard = document.getElementById('closeDashboard');
+
+            dashboardBtn.addEventListener('click', () => {
+                dashboardModal.classList.remove('hidden');
+                renderActiveOrders();
+                renderInventoryAlerts();
+            });
+
+            closeDashboard.addEventListener('click', () => {
+                dashboardModal.classList.add('hidden');
+            });
+
+            dashboardModal.addEventListener('click', (e) => {
+                if (e.target === dashboardModal) {
+                    dashboardModal.classList.add('hidden');
+                }
+            });
+        }
+
+        // Initialize the app when DOM is loaded
+        document.addEventListener('DOMContentLoaded', initApp);
+    </script>
+</body>
+</html>

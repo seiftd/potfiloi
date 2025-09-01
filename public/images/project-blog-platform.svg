@@ -1,0 +1,63 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="400" height="300" viewBox="0 0 400 300">
+  <defs>
+    <linearGradient id="bgGrad" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" style="stop-color:#f97316;stop-opacity:1" />
+      <stop offset="100%" style="stop-color:#ea580c;stop-opacity:1" />
+    </linearGradient>
+  </defs>
+  
+  <!-- Background -->
+  <rect width="400" height="300" fill="url(#bgGrad)"/>
+  
+  <!-- Header -->
+  <rect x="20" y="20" width="360" height="60" rx="8" fill="rgba(255,255,255,0.15)" stroke="rgba(255,255,255,0.3)" stroke-width="1"/>
+  <text x="200" y="55" font-family="Arial, sans-serif" font-size="18" font-weight="bold" text-anchor="middle" fill="white">Blog Platform</text>
+  
+  <!-- Blog Posts -->
+  <rect x="30" y="100" width="160" height="160" rx="8" fill="rgba(255,255,255,0.1)" stroke="rgba(255,255,255,0.2)" stroke-width="1"/>
+  <text x="110" y="125" font-family="Arial, sans-serif" font-size="14" font-weight="bold" text-anchor="middle" fill="white">Recent Posts</text>
+  
+  <!-- Post Items -->
+  <rect x="40" y="135" width="140" height="35" rx="4" fill="rgba(255,255,255,0.15)"/>
+  <text x="50" y="150" font-family="Arial, sans-serif" font-size="11" font-weight="bold" fill="white">📝 Getting Started with React</text>
+  <text x="50" y="165" font-family="Arial, sans-serif" font-size="10" fill="rgba(255,255,255,0.8)">Learn the basics of React...</text>
+  
+  <rect x="40" y="175" width="140" height="35" rx="4" fill="rgba(255,255,255,0.15)"/>
+  <text x="50" y="190" font-family="Arial, sans-serif" font-size="11" font-weight="bold" fill="white">🎨 CSS Grid Layout Guide</text>
+  <text x="50" y="205" font-family="Arial, sans-serif" font-size="10" fill="rgba(255,255,255,0.8)">Master CSS Grid...</text>
+  
+  <rect x="40" y="215" width="140" height="35" rx="4" fill="rgba(255,255,255,0.15)"/>
+  <text x="50" y="230" font-family="Arial, sans-serif" font-size="11" font-weight="bold" fill="white">🚀 Next.js Best Practices</text>
+  <text x="50" y="245" font-family="Arial, sans-serif" font-size="10" fill="rgba(255,255,255,0.8)">Optimize your Next.js app...</text>
+  
+  <rect x="40" y="255" width="140" height="35" rx="4" fill="rgba(255,255,255,0.15)"/>
+  <text x="50" y="270" font-family="Arial, sans-serif" font-size="11" font-weight="bold" fill="white">💻 JavaScript Tips & Tricks</text>
+  <text x="50" y="285" font-family="Arial, sans-serif" font-size="10" fill="rgba(255,255,255,0.8)">Advanced JavaScript techniques...</text>
+  
+  <!-- Create Post Form -->
+  <rect x="210" y="100" width="160" height="160" rx="8" fill="rgba(255,255,255,0.1)" stroke="rgba(255,255,255,0.2)" stroke-width="1"/>
+  <text x="290" y="125" font-family="Arial, sans-serif" font-size="14" font-weight="bold" text-anchor="middle" fill="white">Create New Post</text>
+  
+  <!-- Form Fields -->
+  <rect x="220" y="135" width="140" height="25" rx="4" fill="rgba(255,255,255,0.15)"/>
+  <text x="290" y="150" font-family="Arial, sans-serif" font-size="10" text-anchor="middle" fill="rgba(255,255,255,0.7)">Post title...</text>
+  
+  <rect x="220" y="170" width="140" height="25" rx="4" fill="rgba(255,255,255,0.15)"/>
+  <text x="290" y="185" font-family="Arial, sans-serif" font-size="10" text-anchor="middle" fill="rgba(255,255,255,0.7)">Category...</text>
+  
+  <rect x="220" y="205" width="140" height="60" rx="4" fill="rgba(255,255,255,0.15)"/>
+  <text x="290" y="225" font-family="Arial, sans-serif" font-size="10" text-anchor="middle" fill="rgba(255,255,255,0.7)">Write your post content...</text>
+  <text x="290" y="240" font-family="Arial, sans-serif" font-size="10" text-anchor="middle" fill="rgba(255,255,255,0.7)">You can use markdown</text>
+  <text x="290" y="255" font-family="Arial, sans-serif" font-size="10" text-anchor="middle" fill="rgba(255,255,255,0.7)">formatting here...</text>
+  
+  <!-- Publish Button -->
+  <rect x="220" y="275" width="140" height="25" rx="4" fill="#f97316"/>
+  <text x="290" y="290" font-family="Arial, sans-serif" font-size="12" font-weight="bold" text-anchor="middle" fill="white">Publish Post</text>
+  
+  <!-- Icons -->
+  <circle cx="50" cy="50" r="15" fill="rgba(255,255,255,0.2)"/>
+  <text x="50" y="55" font-family="Arial, sans-serif" font-size="20" text-anchor="middle" fill="white">📝</text>
+  
+  <circle cx="350" cy="50" r="15" fill="rgba(255,255,255,0.2)"/>
+  <text x="350" y="55" font-family="Arial, sans-serif" font-size="20" text-anchor="middle" fill="white">✏️</text>
+</svg>

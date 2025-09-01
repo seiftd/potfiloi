@@ -1,0 +1,55 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="400" height="300" viewBox="0 0 400 300">
+  <defs>
+    <linearGradient id="bgGrad" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" style="stop-color:#10b981;stop-opacity:1" />
+      <stop offset="100%" style="stop-color:#059669;stop-opacity:1" />
+    </linearGradient>
+  </defs>
+  
+  <!-- Background -->
+  <rect width="400" height="300" fill="url(#bgGrad)"/>
+  
+  <!-- Header -->
+  <rect x="20" y="20" width="360" height="60" rx="8" fill="rgba(255,255,255,0.15)" stroke="rgba(255,255,255,0.3)" stroke-width="1"/>
+  <text x="200" y="55" font-family="Arial, sans-serif" font-size="18" font-weight="bold" text-anchor="middle" fill="white">AI Chatbot Assistant</text>
+  
+  <!-- Chat Interface -->
+  <rect x="30" y="100" width="340" height="160" rx="8" fill="rgba(255,255,255,0.1)" stroke="rgba(255,255,255,0.2)" stroke-width="1"/>
+  
+  <!-- Chat Messages -->
+  <!-- User Message -->
+  <rect x="50" y="120" width="200" height="40" rx="20" fill="rgba(255,255,255,0.2)"/>
+  <text x="70" y="140" font-family="Arial, sans-serif" font-size="11" fill="white">Hello! How can you help me today?</text>
+  <text x="70" y="155" font-family="Arial, sans-serif" font-size="9" fill="rgba(255,255,255,0.7)">You • 2:30 PM</text>
+  
+  <!-- AI Response -->
+  <rect x="150" y="170" width="200" height="50" rx="20" fill="rgba(255,255,255,0.15)"/>
+  <text x="170" y="185" font-family="Arial, sans-serif" font-size="11" fill="white">Hi! I'm your AI assistant. I can help</text>
+  <text x="170" y="200" font-family="Arial, sans-serif" font-size="11" fill="white">with questions, tasks, and information.</text>
+  <text x="170" y="215" font-family="Arial, sans-serif" font-size="9" fill="rgba(255,255,255,0.7)">AI Assistant • 2:31 PM</text>
+  
+  <!-- User Message 2 -->
+  <rect x="50" y="230" width="180" height="40" rx="20" fill="rgba(255,255,255,0.2)"/>
+  <text x="70" y="250" font-family="Arial, sans-serif" font-size="11" fill="white">What's the weather like today?</text>
+  <text x="70" y="265" font-family="Arial, sans-serif" font-size="9" fill="rgba(255,255,255,0.7)">You • 2:32 PM</text>
+  
+  <!-- Input Field -->
+  <rect x="30" y="280" width="280" height="40" rx="20" fill="rgba(255,255,255,0.15)" stroke="rgba(255,255,255,0.3)" stroke-width="1"/>
+  <text x="50" y="300" font-family="Arial, sans-serif" font-size="11" fill="rgba(255,255,255,0.6)">Type your message here...</text>
+  
+  <!-- Send Button -->
+  <rect x="320" y="280" width="50" height="40" rx="20" fill="rgba(255,255,255,0.2)"/>
+  <text x="345" y="300" font-family="Arial, sans-serif" font-size="16" text-anchor="middle" fill="white">➤</text>
+  
+  <!-- AI Status -->
+  <rect x="30" y="100" width="340" height="20" rx="8" fill="rgba(255,255,255,0.1)"/>
+  <circle cx="45" cy="110" r="4" fill="#10b981"/>
+  <text x="55" y="115" font-family="Arial, sans-serif" font-size="10" fill="rgba(255,255,255,0.8)">AI Assistant Online</text>
+  
+  <!-- Icons -->
+  <circle cx="50" cy="50" r="15" fill="rgba(255,255,255,0.2)"/>
+  <text x="50" y="55" font-family="Arial, sans-serif" font-size="20" text-anchor="middle" fill="white">🤖</text>
+  
+  <circle cx="350" cy="50" r="15" fill="rgba(255,255,255,0.2)"/>
+  <text x="350" y="55" font-family="Arial, sans-serif" font-size="20" text-anchor="middle" fill="white">💬</text>
+</svg>

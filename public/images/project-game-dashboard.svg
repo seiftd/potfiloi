@@ -1,0 +1,69 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="400" height="300" viewBox="0 0 400 300">
+  <defs>
+    <linearGradient id="bgGrad" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" style="stop-color:#8b5cf6;stop-opacity:1" />
+      <stop offset="100%" style="stop-color:#7c3aed;stop-opacity:1" />
+    </linearGradient>
+  </defs>
+  
+  <!-- Background -->
+  <rect width="400" height="300" fill="url(#bgGrad)"/>
+  
+  <!-- Header -->
+  <rect x="20" y="20" width="360" height="60" rx="8" fill="rgba(255,255,255,0.15)" stroke="rgba(255,255,255,0.3)" stroke-width="1"/>
+  <text x="200" y="55" font-family="Arial, sans-serif" font-size="18" font-weight="bold" text-anchor="middle" fill="white">Gaming Dashboard</text>
+  
+  <!-- Game Stats -->
+  <rect x="30" y="100" width="160" height="80" rx="8" fill="rgba(255,255,255,0.1)" stroke="rgba(255,255,255,0.2)" stroke-width="1"/>
+  <text x="110" y="125" font-family="Arial, sans-serif" font-size="14" font-weight="bold" text-anchor="middle" fill="white">Game Stats</text>
+  
+  <!-- Stats Grid -->
+  <rect x="40" y="135" width="60" height="30" rx="4" fill="rgba(255,255,255,0.15)"/>
+  <text x="70" y="150" font-family="Arial, sans-serif" font-size="10" text-anchor="middle" fill="white">Level</text>
+  <text x="70" y="162" font-family="Arial, sans-serif" font-size="12" font-weight="bold" text-anchor="middle" fill="white">42</text>
+  
+  <rect x="110" y="135" width="60" height="30" rx="4" fill="rgba(255,255,255,0.15)"/>
+  <text x="140" y="150" font-family="Arial, sans-serif" font-size="10" text-anchor="middle" fill="white">XP</text>
+  <text x="140" y="162" font-family="Arial, sans-serif" font-size="12" font-weight="bold" text-anchor="middle" fill="white">1.2K</text>
+  
+  <rect x="40" y="175" width="60" height="30" rx="4" fill="rgba(255,255,255,0.15)"/>
+  <text x="70" y="190" font-family="Arial, sans-serif" font-size="10" text-anchor="middle" fill="white">Coins</text>
+  <text x="70" y="202" font-family="Arial, sans-serif" font-size="12" font-weight="bold" text-anchor="middle" fill="white">5.8K</text>
+  
+  <rect x="110" y="175" width="60" height="30" rx="4" fill="rgba(255,255,255,0.15)"/>
+  <text x="140" y="190" font-family="Arial, sans-serif" font-size="10" text-anchor="middle" fill="white">Wins</text>
+  <text x="140" y="202" font-family="Arial, sans-serif" font-size="12" font-weight="bold" text-anchor="middle" fill="white">156</text>
+  
+  <!-- Recent Games -->
+  <rect x="30" y="200" width="160" height="60" rx="8" fill="rgba(255,255,255,0.1)" stroke="rgba(255,255,255,0.2)" stroke-width="1"/>
+  <text x="110" y="225" font-family="Arial, sans-serif" font-size="12" font-weight="bold" text-anchor="middle" fill="white">Recent Games</text>
+  <text x="110" y="240" font-family="Arial, sans-serif" font-size="10" text-anchor="middle" fill="rgba(255,255,255,0.8)">3 wins, 2 losses</text>
+  
+  <!-- Game Library -->
+  <rect x="210" y="100" width="160" height="160" rx="8" fill="rgba(255,255,255,0.1)" stroke="rgba(255,255,255,0.2)" stroke-width="1"/>
+  <text x="290" y="125" font-family="Arial, sans-serif" font-size="14" font-weight="bold" text-anchor="middle" fill="white">Game Library</text>
+  
+  <!-- Game Items -->
+  <rect x="220" y="135" width="140" height="30" rx="4" fill="rgba(255,255,255,0.15)"/>
+  <text x="230" y="150" font-family="Arial, sans-serif" font-size="10" fill="white">🎮 Call of Duty: Warzone</text>
+  <text x="350" y="150" font-family="Arial, sans-serif" font-size="10" text-anchor="end" fill="rgba(255,255,255,0.7)">Online</text>
+  
+  <rect x="220" y="170" width="140" height="30" rx="4" fill="rgba(255,255,255,0.15)"/>
+  <text x="230" y="185" font-family="Arial, sans-serif" font-size="10" fill="white">🎮 Minecraft</text>
+  <text x="350" y="185" font-family="Arial, sans-serif" font-size="10" text-anchor="end" fill="rgba(255,255,255,0.7)">Offline</text>
+  
+  <rect x="220" y="205" width="140" height="30" rx="4" fill="rgba(255,255,255,0.15)"/>
+  <text x="230" y="220" font-family="Arial, sans-serif" font-size="10" fill="white">🎮 Fortnite</text>
+  <text x="350" y="220" font-family="Arial, sans-serif" font-size="10" text-anchor="end" fill="rgba(255,255,255,0.7)">Online</text>
+  
+  <rect x="220" y="240" width="140" height="30" rx="4" fill="rgba(255,255,255,0.15)"/>
+  <text x="230" y="255" font-family="Arial, sans-serif" font-size="10" fill="white">🎮 Among Us</text>
+  <text x="350" y="255" font-family="Arial, sans-serif" font-size="10" text-anchor="end" fill="rgba(255,255,255,0.7)">Online</text>
+  
+  <!-- Icons -->
+  <circle cx="50" cy="50" r="15" fill="rgba(255,255,255,0.2)"/>
+  <text x="50" y="55" font-family="Arial, sans-serif" font-size="20" text-anchor="middle" fill="white">🎮</text>
+  
+  <circle cx="350" cy="50" r="15" fill="rgba(255,255,255,0.2)"/>
+  <text x="350" y="55" font-family="Arial, sans-serif" font-size="20" text-anchor="middle" fill="white">🏆</text>
+</svg>

@@ -1,0 +1,76 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="800" height="600" viewBox="0 0 800 600">
+  <defs>
+    <linearGradient id="grad1" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" style="stop-color:#dc2626;stop-opacity:1" />
+      <stop offset="100%" style="stop-color:#991b1b;stop-opacity:1" />
+    </linearGradient>
+  </defs>
+  <rect width="800" height="600" fill="url(#grad1)"/>
+  
+  <!-- Header -->
+  <rect x="0" y="0" width="800" height="80" fill="rgba(220,38,38,0.2)" stroke="rgba(220,38,38,0.3)" stroke-width="1"/>
+  <text x="400" y="50" font-family="Arial, sans-serif" font-size="24" font-weight="bold" text-anchor="middle" fill="white">CRM Dashboard</text>
+  
+  <!-- Sidebar -->
+  <rect x="0" y="80" width="200" height="520" fill="rgba(31,41,55,0.8)" stroke="rgba(75,85,99,0.3)" stroke-width="1"/>
+  <text x="100" y="120" font-family="Arial, sans-serif" font-size="16" font-weight="bold" text-anchor="middle" fill="white">Customer Management</text>
+  
+  <!-- Metrics Cards -->
+  <rect x="220" y="100" width="150" height="100" rx="8" fill="rgba(220,38,38,0.2)" stroke="rgba(220,38,38,0.3)" stroke-width="1"/>
+  <text x="295" y="130" font-family="Arial, sans-serif" font-size="14" text-anchor="middle" fill="white">Total Customers</text>
+  <text x="295" y="155" font-family="Arial, sans-serif" font-size="24" font-weight="bold" text-anchor="middle" fill="#dc2626">1,247</text>
+  
+  <rect x="390" y="100" width="150" height="100" rx="8" fill="rgba(34,197,94,0.2)" stroke="rgba(34,197,94,0.3)" stroke-width="1"/>
+  <text x="465" y="130" font-family="Arial, sans-serif" font-size="14" text-anchor="middle" fill="white">Active Leads</text>
+  <text x="465" y="155" font-family="Arial, sans-serif" font-size="24" font-weight="bold" text-anchor="middle" fill="#22c55e">89</text>
+  
+  <rect x="560" y="100" width="150" height="100" rx="8" fill="rgba(59,130,246,0.2)" stroke="rgba(59,130,246,0.3)" stroke-width="1"/>
+  <text x="635" y="130" font-family="Arial, sans-serif" font-size="14" text-anchor="middle" fill="white">Conversion Rate</text>
+  <text x="635" y="155" font-family="Arial, sans-serif" font-size="24" font-weight="bold" text-anchor="middle" fill="#3b82f6">23.4%</text>
+  
+  <!-- Customer List -->
+  <rect x="220" y="220" width="560" height="200" rx="8" fill="rgba(255,255,255,0.05)" stroke="rgba(255,255,255,0.1)" stroke-width="1"/>
+  <text x="500" y="250" font-family="Arial, sans-serif" font-size="18" font-weight="bold" text-anchor="middle" fill="white">Recent Customers</text>
+  
+  <!-- Customer Rows -->
+  <rect x="240" y="270" width="520" height="30" fill="rgba(220,38,38,0.1)"/>
+  <text x="260" y="290" font-family="Arial, sans-serif" font-size="14" fill="white">John Smith</text>
+  <text x="400" y="290" font-family="Arial, sans-serif" font-size="14" fill="rgba(255,255,255,0.8)">john@company.com</text>
+  <text x="600" y="290" font-family="Arial, sans-serif" font-size="14" fill="rgba(255,255,255,0.8)">Premium</text>
+  <text x="700" y="290" font-family="Arial, sans-serif" font-size="14" text-anchor="end" fill="rgba(255,255,255,0.8)">$2,500</text>
+  
+  <rect x="240" y="300" width="520" height="30" fill="rgba(34,197,94,0.1)"/>
+  <text x="260" y="320" font-family="Arial, sans-serif" font-size="14" fill="white">Sarah Johnson</text>
+  <text x="400" y="320" font-family="Arial, sans-serif" font-size="14" fill="rgba(255,255,255,0.8)">sarah@company.com</text>
+  <text x="600" y="320" font-family="Arial, sans-serif" font-size="14" fill="rgba(255,255,255,0.8)">Standard</text>
+  <text x="700" y="320" font-family="Arial, sans-serif" font-size="14" text-anchor="end" fill="rgba(255,255,255,0.8)">$1,200</text>
+  
+  <rect x="240" y="330" width="520" height="30" fill="rgba(59,130,246,0.1)"/>
+  <text x="260" y="350" font-family="Arial, sans-serif" font-size="14" fill="white">Mike Davis</text>
+  <text x="400" y="350" font-family="Arial, sans-serif" font-size="14" fill="rgba(255,255,255,0.8)">mike@company.com</text>
+  <text x="600" y="350" font-family="Arial, sans-serif" font-size="14" fill="rgba(255,255,255,0.8)">Basic</text>
+  <text x="700" y="350" font-family="Arial, sans-serif" font-size="14" text-anchor="end" fill="rgba(255,255,255,0.8)">$800</text>
+  
+  <rect x="240" y="360" width="520" height="30" fill="rgba(139,92,246,0.1)"/>
+  <text x="260" y="380" font-family="Arial, sans-serif" font-size="14" fill="white">Lisa Wilson</text>
+  <text x="400" y="380" font-family="Arial, sans-serif" font-size="14" fill="rgba(255,255,255,0.8)">lisa@company.com</text>
+  <text x="600" y="380" font-family="Arial, sans-serif" font-size="14" fill="rgba(255,255,255,0.8)">Premium</text>
+  <text x="700" y="380" font-family="Arial, sans-serif" font-size="14" text-anchor="end" fill="rgba(255,255,255,0.8)">$3,100</text>
+  
+  <!-- Activity Feed -->
+  <rect x="220" y="440" width="560" height="160" rx="8" fill="rgba(255,255,255,0.05)" stroke="rgba(255,255,255,0.1)" stroke-width="1"/>
+  <text x="500" y="470" font-family="Arial, sans-serif" font-size="18" font-weight="bold" text-anchor="middle" fill="white">Activity Feed</text>
+  
+  <!-- Activity Items -->
+  <rect x="240" y="490" width="520" height="30" fill="rgba(220,38,38,0.1)"/>
+  <text x="260" y="510" font-family="Arial, sans-serif" font-size="14" fill="white">New lead: TechCorp Inc.</text>
+  <text x="700" y="510" font-family="Arial, sans-serif" font-size="14" text-anchor="end" fill="white">5 min ago</text>
+  
+  <rect x="240" y="520" width="520" height="30" fill="rgba(34,197,94,0.1)"/>
+  <text x="260" y="540" font-family="Arial, sans-serif" font-size="14" fill="white">Deal closed: $15,000</text>
+  <text x="700" y="540" font-family="Arial, sans-serif" font-size="14" text-anchor="end" fill="white">1 hour ago</text>
+  
+  <rect x="240" y="550" width="520" height="30" fill="rgba(59,130,246,0.1)"/>
+  <text x="260" y="570" font-family="Arial, sans-serif" font-size="14" fill="white">Follow-up scheduled</text>
+  <text x="700" y="570" font-family="Arial, sans-serif" font-size="14" text-anchor="end" fill="white">2 hours ago</text>
+</svg>
