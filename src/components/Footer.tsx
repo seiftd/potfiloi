@@ -124,7 +124,7 @@ const Footer = () => {
             <h3 className="text-white font-semibold mb-4">Contact</h3>
             <div className="space-y-2">
               <p className="text-gray-400 text-sm">
-                📧 touati.seif@gmail.com
+                📧 seiftouatilol@gmail.com
               </p>
               <p className="text-gray-400 text-sm">
                 📱 +213 0674911199
