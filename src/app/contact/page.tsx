@@ -135,7 +135,7 @@ export default function ContactPage() {
               <div>
                 <div className="text-3xl mb-2">📧</div>
                 <h4 className="font-semibold mb-2">Email</h4>
-                <p className="text-gray-300">touati.seif@example.com</p>
+                <p className="text-gray-300">touati.seif@gmail.com</p>
               </div>
               <div>
                 <div className="text-3xl mb-2">💼</div>
