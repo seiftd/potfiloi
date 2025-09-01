@@ -45,13 +45,13 @@ const ContactSection = () => {
     {
       icon: '📧',
       label: 'Email',
-      value: 'touati.seif@example.com',
-      link: 'mailto:touati.seif@example.com'
+      value: 'seiftouatilol@gmail.com',
+      link: 'mailto:seiftouatilol@gmail.com'
     },
     {
       icon: '📱',
       label: 'Phone',
-      value: '+213 XXX XXX XXX',
+      value: '+213 0674911199',
       link: 'tel:+213XXXXXXXXX'
     },
     {
