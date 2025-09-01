@@ -39,7 +39,7 @@ export default function AboutSection() {
           <p className="text-xl text-gray-300 max-w-4xl mx-auto">
             A 25-year-old Software Engineering graduate from Algeria, powered by a passion for AI and a mastery of the full stack. 
             I hold certifications in Artificial Intelligence and am fluent in the languages that bring ideas to life. 
-            I don't just write code; I solve problems and create seamless digital experiences.
+            I don&apos;t just write code; I solve problems and create seamless digital experiences.
           </p>
         </motion.div>
 

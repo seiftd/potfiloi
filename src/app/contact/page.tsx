@@ -41,10 +41,10 @@ export default function ContactPage() {
           transition={{ duration: 0.6 }}
         >
           <h1 className="text-5xl font-bold mb-6 gradient-text">
-            Let's Discuss Your Project
+            Let&apos;s Discuss Your Project
           </h1>
           <p className="text-xl text-gray-300 max-w-2xl mx-auto">
-            Have a specific project in mind? Let's talk about your requirements and how I can help bring your vision to life.
+            Have a specific project in mind? Let&apos;s talk about your requirements and how I can help bring your vision to life.
           </p>
         </motion.div>
       </section>

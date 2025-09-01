@@ -17,7 +17,7 @@ export async function GET(
         'Content-Type': 'text/html',
       },
     });
-  } catch (error) {
+  } catch {
     return NextResponse.json(
       { error: 'Dashboard not found' },
       { status: 404 }

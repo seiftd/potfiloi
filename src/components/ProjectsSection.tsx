@@ -456,7 +456,7 @@ const ProjectsSection = () => {
                 onClick={() => window.open('/contact', '_blank')}
                 className="px-8 py-4 border-2 border-blue-500 text-blue-400 font-bold rounded-lg hover:bg-blue-500 hover:text-white transition-all text-lg"
               >
-                💬 Let's Discuss Your Needs
+                💬 Let&apos;s Discuss Your Needs
               </motion.button>
             </div>
           </div>

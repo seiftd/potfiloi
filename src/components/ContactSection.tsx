@@ -34,7 +34,7 @@ const ContactSection = () => {
       
       setSubmitStatus('success');
       setFormData({ name: '', email: '', message: '' });
-    } catch (error) {
+    } catch {
       setSubmitStatus('error');
     } finally {
       setIsSubmitting(false);
@@ -82,10 +82,10 @@ const ContactSection = () => {
           <h2 className="text-4xl md:text-5xl font-bold mb-6">
             <span className="gradient-text">Have a Project in Mind?</span>
             <br />
-            <span className="text-white">Let's Engineer Your Success</span>
+            <span className="text-white">Let&apos;s Engineer Your Success</span>
           </h2>
           <p className="text-xl text-gray-300 max-w-3xl mx-auto">
-            Ready to bring your ideas to life? Let's discuss your project and create something amazing together.
+            Ready to bring your ideas to life? Let&apos;s discuss your project and create something amazing together.
           </p>
         </motion.div>
 
@@ -174,7 +174,7 @@ const ContactSection = () => {
                     animate={{ opacity: 1, y: 0 }}
                     className="p-4 bg-green-500/20 border border-green-500/30 rounded-lg text-green-400 text-center"
                   >
-                    ✅ Message sent successfully! I'll get back to you soon.
+                    ✅ Message sent successfully! I&apos;ll get back to you soon.
                   </motion.div>
                 )}
 
@@ -202,7 +202,7 @@ const ContactSection = () => {
             <div>
               <h3 className="text-2xl font-bold text-white mb-6">Get in Touch</h3>
               <p className="text-gray-300 leading-relaxed mb-8">
-                I'm always excited to hear about new projects and opportunities. 
+                I&apos;m always excited to hear about new projects and opportunities. 
                 Whether you have a specific project in mind or just want to chat about 
                 technology and development, feel free to reach out!
               </p>
@@ -265,7 +265,7 @@ const ContactSection = () => {
             {/* Call to Action */}
             <div className="text-center">
               <p className="text-gray-300 mb-4">
-                Let's create something amazing together!
+                Let&apos;s create something amazing together!
               </p>
               <motion.button
                 whileHover={{ scale: 1.05 }}
